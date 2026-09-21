@@ -18,7 +18,8 @@ CLASS_NAMES = [
     "Tomato___Early_blight",
 ]
 
-model = tf.keras.models.load_model(MODEL_PATH)
+def get_model():
+    return tf.keras.models.load_model(MODEL_PATH)
 
 
 def predict_disease(image_path):
@@ -30,6 +31,7 @@ def predict_disease(image_path):
     image_array = tf.keras.utils.img_to_array(image)
     image_array = np.expand_dims(image_array, axis=0)
 
+    model = get_model()
     predictions = model.predict(image_array, verbose=0)[0]
 
     predicted_index = int(np.argmax(predictions))
