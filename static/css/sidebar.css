@@ -1704,3 +1704,61 @@
     scrollbar-color: #3b82f6 transparent !important;
 }
 
+/* =========================================================
+   📱 MOBILE SIDEBAR DRAWER
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .sidebar {
+        position: fixed !important;
+
+        top: 70px !important;
+        bottom: 0 !important;
+        left: -280px !important;
+
+        width: 260px !important;
+        height: auto !important;
+
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+
+        z-index: 9999 !important;
+
+        transition: left 0.3s ease !important;
+    }
+
+    /* Sidebar OPEN */
+    .sidebar.active {
+        left: 0 !important;
+    }
+
+    /* Mobile menu button */
+    .mobile-menu-btn {
+        display: block !important;
+        position: relative !important;
+
+        border: none !important;
+        background: transparent !important;
+
+        color: white !important;
+
+        font-size: 26px !important;
+        cursor: pointer !important;
+
+        padding: 5px 10px !important;
+
+        z-index: 10000 !important;
+    }
+
+}
+
+
+/* Desktop par menu button hidden */
+@media (min-width: 769px) {
+
+    .mobile-menu-btn {
+        display: none !important;
+    }
+
+}
