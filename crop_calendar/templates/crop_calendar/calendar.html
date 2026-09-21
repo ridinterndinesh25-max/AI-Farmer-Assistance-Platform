@@ -1,0 +1,323 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Crop Calendar | AI Farmer{% endblock %}
+
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'css/calendar.css' %}">
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="crop-calendar-page">
+
+
+    <!-- ================= HEADER ================= -->
+
+    <div class="calendar-header">
+
+        <div class="calendar-title-area">
+
+            <h1>📅 Crop Calendar</h1>
+
+            <p>
+                Apni crop activities aur important dates manage karein.
+            </p>
+
+        </div>
+
+
+        <a
+            href="{% url 'add_calendar_activity' %}"
+            class="add-activity-btn"
+        >
+            ➕ Add Activity
+        </a>
+
+    </div>
+
+
+
+    <!-- ================= STATS ================= -->
+
+    <div class="calendar-stats">
+
+        <div class="calendar-stat-card stat-total">
+
+            <div class="stat-icon">
+                📋
+            </div>
+
+            <div class="stat-value">
+                {{ activities|length }}
+            </div>
+
+            <div class="stat-label">
+                Total Activities
+            </div>
+
+        </div>
+
+
+        <div class="calendar-stat-card stat-pending">
+
+            <div class="stat-icon">
+                ⏳
+            </div>
+
+            <div class="stat-value">
+
+                {% for item in activities %}
+                    {% if not item.completed %}
+                        {% if forloop.first %}1{% endif %}
+                    {% endif %}
+                {% empty %}
+                    0
+                {% endfor %}
+
+            </div>
+
+            <div class="stat-label">
+                Pending Activities
+            </div>
+
+        </div>
+
+
+        <div class="calendar-stat-card stat-completed">
+
+            <div class="stat-icon">
+                ✅
+            </div>
+
+            <div class="stat-value">
+
+                {% for item in activities %}
+                    {% if item.completed %}
+                        {% if forloop.first %}1{% endif %}
+                    {% endif %}
+                {% empty %}
+                    0
+                {% endfor %}
+
+            </div>
+
+            <div class="stat-label">
+                Completed
+            </div>
+
+        </div>
+
+
+        <div class="calendar-stat-card stat-overdue">
+
+            <div class="stat-icon">
+                ⚠️
+            </div>
+
+            <div class="stat-value">
+                0
+            </div>
+
+            <div class="stat-label">
+                Overdue
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= CALENDAR SECTION ================= -->
+
+    <div class="calendar-section">
+
+
+        <div class="section-heading">
+
+            <h2>
+                🌱 Your Crop Activities
+            </h2>
+
+            <span>
+                Activity History
+            </span>
+
+        </div>
+
+
+
+        {% if activities %}
+
+
+            <div class="activity-grid">
+
+
+                {% for item in activities %}
+
+
+                    <div
+                        class="activity-card
+                        {% if item.completed %}
+                            completed
+                        {% else %}
+                            pending
+                        {% endif %}"
+                    >
+
+
+                        <!-- TOP -->
+
+                        <div class="activity-top">
+
+
+                            <div class="crop-name">
+
+                                🌱 {{ item.crop_name }}
+
+                            </div>
+
+
+                            {% if item.completed %}
+
+                                <div class="activity-status status-completed">
+                                    ✓ Completed
+                                </div>
+
+                            {% else %}
+
+                                <div class="activity-status status-pending">
+                                    ⏳ Pending
+                                </div>
+
+                            {% endif %}
+
+
+                        </div>
+
+
+
+                        <!-- TITLE -->
+
+                        <h3>
+                            {{ item.activity_title }}
+                        </h3>
+
+
+
+                        <!-- DATE -->
+
+                        <div class="activity-date">
+
+                            📅 {{ item.activity_date }}
+
+                        </div>
+
+
+
+                        <!-- TYPE -->
+
+                        <div class="activity-type">
+
+                            📌 {{ item.get_activity_display }}
+
+                        </div>
+
+
+
+                        <!-- DESCRIPTION -->
+
+                        {% if item.description %}
+
+                            <div class="activity-description">
+
+                                {{ item.description }}
+
+                            </div>
+
+                        {% endif %}
+
+
+
+                        <!-- ACTION -->
+
+                        {% if item.completed %}
+
+                            <div class="completed-message">
+
+                                ✓ Activity Completed
+
+                            </div>
+
+                        {% else %}
+
+                            <a
+                                href="{% url 'complete_calendar_activity' item.id %}"
+                                class="complete-btn"
+                            >
+                                ✓ Mark Complete
+                            </a>
+
+                        {% endif %}
+
+
+                    </div>
+
+
+                {% endfor %}
+
+
+            </div>
+
+
+        {% else %}
+
+
+            <!-- EMPTY STATE -->
+
+            <div class="empty-calendar">
+
+
+                <div class="empty-calendar-icon">
+                    📅
+                </div>
+
+
+                <h3>
+                    No Activities Yet
+                </h3>
+
+
+                <p>
+                    Abhi tak koi crop activity add nahi ki gayi hai.
+                </p>
+
+
+                <a
+                    href="{% url 'add_calendar_activity' %}"
+                    class="add-activity-btn"
+                >
+                    ➕ Add Your First Activity
+                </a>
+
+
+            </div>
+
+
+        {% endif %}
+
+
+    </div>
+
+
+</div>
+
+
+{% endblock %}
+

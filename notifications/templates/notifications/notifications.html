@@ -1,0 +1,214 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Notifications | AI Farmer{% endblock %}
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'css/notifications.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+<div class="notifications-page">
+
+    <!-- Header -->
+    <div class="notifications-header">
+
+        <div>
+            <h1>🔔 Notifications</h1>
+            <p>Farmer Assistance Platform ke important updates</p>
+        </div>
+
+        <div class="notification-header-actions">
+
+            <div class="notification-count">
+                🔴 {{ unread_count }} Unread
+            </div>
+
+            {% if unread_count > 0 %}
+                <a
+                    href="{% url 'notifications:mark_all_as_read' %}"
+                    class="mark-all-btn"
+                >
+                    ✓ Mark All as Read
+                </a>
+            {% endif %}
+
+        </div>
+
+    </div>
+
+
+    <!-- Notifications -->
+    {% if notifications %}
+
+        <div class="notifications-list">
+
+            {% for notification in notifications %}
+
+                <div class="notification-card
+                    {% if not notification.is_read %}unread{% endif %}
+                    priority-{{ notification.priority }}">
+
+                    <!-- Icon -->
+                    <div class="notification-icon">
+
+                        {% if notification.category == "weather" %}
+                            🌦️
+
+                        {% elif notification.category == "disease" %}
+                            🦠
+
+                        {% elif notification.category == "treatment" %}
+                            💊
+
+                        {% elif notification.category == "market" %}
+                            💰
+
+                        {% elif notification.category == "mandi" %}
+                            🏪
+
+                        {% elif notification.category == "crop" %}
+                            🌱
+
+                        {% elif notification.category == "farming" %}
+                            🌾
+
+                        {% elif notification.category == "reminder" %}
+                            📅
+
+                        {% else %}
+                            🔔
+                        {% endif %}
+
+                    </div>
+
+
+                    <!-- Content -->
+                    <div class="notification-content">
+
+                        <div class="notification-title-row">
+
+                            <h3>
+                                {{ notification.title }}
+                            </h3>
+
+
+                            {% if not notification.is_read %}
+                                <span class="new-badge">
+                                    NEW
+                                </span>
+                            {% endif %}
+
+
+                            {% if notification.priority == "high" %}
+
+                                <span class="priority-badge high">
+                                    🔴 HIGH
+                                </span>
+
+                            {% elif notification.priority == "medium" %}
+
+                                <span class="priority-badge medium">
+                                    🟠 MEDIUM
+                                </span>
+
+                            {% else %}
+
+                                <span class="priority-badge normal">
+                                    🟢 NORMAL
+                                </span>
+
+                            {% endif %}
+
+                        </div>
+
+
+                        <!-- Category -->
+                        <div class="notification-category">
+
+                            {{ notification.get_category_display }}
+
+                        </div>
+
+
+                        <!-- Message -->
+                        <p>
+                            {{ notification.message }}
+                        </p>
+
+
+                        <!-- Date -->
+                        <small>
+                            🕒
+                            {{ notification.created_at|date:"d M Y, h:i A" }}
+                        </small>
+
+
+                        <!-- Actions -->
+                        <div class="notification-actions">
+
+                            {% if not notification.is_read %}
+
+                                <a
+                                    href="{% url 'notifications:mark_as_read' notification.id %}"
+                                    class="read-btn"
+                                >
+                                    ✓ Mark as Read
+                                </a>
+
+                            {% else %}
+
+                                <span class="read-status">
+                                    ✓ Read
+                                </span>
+
+                            {% endif %}
+
+
+                            <a
+                                href="{% url 'notifications:delete_notification' notification.id %}"
+                                class="delete-notification"
+                                onclick="return confirm('Kya aap is notification ko delete karna chahte hain?');"
+                            >
+                                🗑 Delete
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+
+    {% else %}
+
+        <!-- Empty State -->
+        <div class="empty-notifications">
+
+            <div class="empty-icon">
+                🔔
+            </div>
+
+            <h2>
+                No Notifications
+            </h2>
+
+            <p>
+                Abhi aapke liye koi notification available nahi hai.
+            </p>
+
+        </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}
+

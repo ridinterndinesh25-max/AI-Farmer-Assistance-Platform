@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Register | AI Farmer{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="auth-container">
+
+    <div class="auth-card">
+
+        <h1>🌾 Farmer Registration</h1>
+
+        <p class="auth-subtitle">
+            Create your account and start smart farming.
+        </p>
+
+        {% if messages %}
+            {% for message in messages %}
+                <div class="message">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        {% if form.non_field_errors %}
+            <div class="error-message">
+                {{ form.non_field_errors }}
+            </div>
+        {% endif %}
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="{{ form.first_name.id_for_label }}">
+                    First Name
+                </label>
+                {{ form.first_name }}
+                {{ form.first_name.errors }}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.last_name.id_for_label }}">
+                    Last Name
+                </label>
+                {{ form.last_name }}
+                {{ form.last_name.errors }}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.username.id_for_label }}">
+                    Username
+                </label>
+                {{ form.username }}
+                {{ form.username.errors }}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.email.id_for_label }}">
+                    Email
+                </label>
+                {{ form.email }}
+                {{ form.email.errors }}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.password.id_for_label }}">
+                    Password
+                </label>
+                {{ form.password }}
+                {{ form.password.errors }}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.confirm_password.id_for_label }}">
+                    Confirm Password
+                </label>
+                {{ form.confirm_password }}
+                {{ form.confirm_password.errors }}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.phone.id_for_label }}">
+                    Phone Number
+                </label>
+                {{ form.phone }}
+                {{ form.phone.errors }}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.village.id_for_label }}">
+                    Village
+                </label>
+                {{ form.village }}
+                {{ form.village.errors }}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.district.id_for_label }}">
+                    District
+                </label>
+                {{ form.district }}
+                {{ form.district.errors }}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.state.id_for_label }}">
+                    State
+                </label>
+                {{ form.state }}
+                {{ form.state.errors }}
+            </div>
+
+            <button type="submit" class="auth-button">
+                Create Farmer Account
+            </button>
+
+        </form>
+
+        <p class="auth-footer">
+            Already have an account?
+            <a href="{% url 'login' %}">Login here</a>
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}

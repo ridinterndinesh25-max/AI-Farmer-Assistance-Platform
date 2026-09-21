@@ -1,0 +1,304 @@
+[
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$zCmr2dKD4jSDUUL3CawFMO$diD/+UMmVxMRqMDxUmhJTef7AQH9cdyN95CfxbypCdM=",
+    "last_login": "2026-09-14T07:49:10.384Z",
+    "is_superuser": false,
+    "username": "dinesh",
+    "first_name": "dinesh",
+    "last_name": "ninhave",
+    "email": "dinesh@gamil.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-09-12T07:59:41.967Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$nRICqyJ9LJ6tzhzmFbU4Ui$oJf9Stx5q3bg7yzhS+N0PeM9+FIjYsXW1o0QgbpQVX0=",
+    "last_login": "2026-09-12T09:54:48.380Z",
+    "is_superuser": false,
+    "username": "amit",
+    "first_name": "amit",
+    "last_name": "sharnagat",
+    "email": "amit@gamil.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-09-12T09:54:38.001Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "44rlk16p7vrik1pfxnf5cv1deq2ty08z",
+  "fields": {
+    "session_data": ".eJxVjEEKwyAQAP_iuYhK4mqPvfcNsu5qTVsUYnIK_XsRcmivM8McIuC-lbD3tIaFxVVocfllEemV6hD8xPpoklrd1iXKkcjTdnlvnN63s_0bFOxlbGFyNuPsVVQOKZo0EYEHa9BlbXly5NBDTGg8ZCBlCbQyTJkVzezE5wvkcDhA:1x5h4q:QLA6yyImrtGSK-3XekecEn1P0av9kvgGUYr8YsFsMZk",
+    "expire_date": "2026-09-27T10:04:48.056Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ux7i8fvjf4brtstpfliclalmn7v0yvgg",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGlnxB38o6TmDtd5d4wBypDipEHcnkVJA-2bmvUWCdalp7TynkcRFKHH63TLgk9sO6AHtPkmc2jKPWe6KPGiXt4n4dT3cv4MKvW41qxKMLZjJZAVFDZ5Ra7IxBJfR2nN0XgdtfDE6ox6MI94wOQQgz1F8vu2OODM:1x5IeF:qxLIpx2cDE6bRYbkrRmkZVWK4LDG37jdgB6ttlJ0isY",
+    "expire_date": "2026-09-26T07:59:43.662Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "yfr3i74ub5ovctvbepgvaj83fslhdk9s",
+  "fields": {
+    "session_data": ".eJxVjEEKwyAQAP_iuYhK4mqPvfcNsu5qTVsUYnIK_XsRcmivM8McIuC-lbD3tIaFxVVocfllEemV6hD8xPpoklrd1iXKkcjTdnlvnN63s_0bFOxlbGFyNuPsVVQOKZo0EYEHa9BlbXly5NBDTGg8ZCBlCbQyTJkVzezE5wvkcDhA:1x61R8:iAoZzAzpFGvRZNmUYtXNzSmA0Sc6mVeCxsE67Jpe9LU",
+    "expire_date": "2026-09-28T07:49:10.396Z"
+  }
+},
+{
+  "model": "accounts.farmerprofile",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "dinesh"
+    ],
+    "phone": "9770844058",
+    "village": "wara",
+    "district": "balaghat",
+    "state": "mp",
+    "land_size": null
+  }
+},
+{
+  "model": "accounts.farmerprofile",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "amit"
+    ],
+    "phone": "8754691341",
+    "village": "lohara",
+    "district": "balaghat",
+    "state": "Madhya Pradesh",
+    "land_size": null
+  }
+},
+{
+  "model": "crops.crop",
+  "pk": 1,
+  "fields": {
+    "farmer": [
+      "dinesh"
+    ],
+    "crop_name": "whart",
+    "season": "Rabi",
+    "land_area": "2.00",
+    "soil_type": "black oil",
+    "sowing_date": "0225-12-14",
+    "irrigation_method": "Drip Irrigation",
+    "created_at": "2026-09-12T08:37:17.831Z",
+    "updated_at": "2026-09-12T08:37:17.831Z"
+  }
+},
+{
+  "model": "crops.crop",
+  "pk": 2,
+  "fields": {
+    "farmer": [
+      "dinesh"
+    ],
+    "crop_name": "dinesh",
+    "season": "Rabi",
+    "land_area": "-0.01",
+    "soil_type": "balck",
+    "sowing_date": "2255-05-14",
+    "irrigation_method": "dial menational",
+    "created_at": "2026-09-12T09:56:09.854Z",
+    "updated_at": "2026-09-12T09:56:09.855Z"
+  }
+},
+{
+  "model": "disease_detection.diseasedetection",
+  "pk": 1,
+  "fields": {
+    "farmer": [
+      "dinesh"
+    ],
+    "crop_name": "rabbhi",
+    "image": "disease_images/balu.jpeg",
+    "disease_name": null,
+    "confidence": null,
+    "created_at": "2026-09-12T10:15:22.720Z"
+  }
+},
+{
+  "model": "disease_detection.diseasedetection",
+  "pk": 2,
+  "fields": {
+    "farmer": [
+      "dinesh"
+    ],
+    "crop_name": "dinesh",
+    "image": "disease_images/rcb.jpeg",
+    "disease_name": "Prediction Pending",
+    "confidence": null,
+    "created_at": "2026-09-12T10:26:21.091Z"
+  }
+},
+{
+  "model": "disease_detection.diseasedetection",
+  "pk": 3,
+  "fields": {
+    "farmer": [
+      "dinesh"
+    ],
+    "crop_name": "tomato",
+    "image": "disease_images/images_val.jpg",
+    "disease_name": "Prediction Pending",
+    "confidence": null,
+    "created_at": "2026-09-13T10:05:44.298Z"
+  }
+},
+{
+  "model": "disease_detection.diseasedetection",
+  "pk": 4,
+  "fields": {
+    "farmer": [
+      "dinesh"
+    ],
+    "crop_name": "tomato",
+    "image": "disease_images/images_tomato.jpg",
+    "disease_name": "Prediction Pending",
+    "confidence": null,
+    "created_at": "2026-09-13T10:06:54.030Z"
+  }
+},
+{
+  "model": "disease_detection.diseasedetection",
+  "pk": 5,
+  "fields": {
+    "farmer": [
+      "dinesh"
+    ],
+    "crop_name": "tomato",
+    "image": "disease_images/images_tomato_TZ4GoA4.jpg",
+    "disease_name": "Tomato_Healthy",
+    "confidence": 17.75,
+    "created_at": "2026-09-13T10:13:38.896Z"
+  }
+},
+{
+  "model": "disease_detection.diseasedetection",
+  "pk": 6,
+  "fields": {
+    "farmer": [
+      "dinesh"
+    ],
+    "crop_name": "tomato",
+    "image": "disease_images/images_tomato_EhM6080.jpg",
+    "disease_name": "Tomato_Healthy",
+    "confidence": 17.75,
+    "created_at": "2026-09-13T10:22:44.757Z"
+  }
+},
+{
+  "model": "disease_detection.diseasedetection",
+  "pk": 7,
+  "fields": {
+    "farmer": [
+      "dinesh"
+    ],
+    "crop_name": "tomato",
+    "image": "disease_images/images_val_XugNXNb.jpg",
+    "disease_name": "Tomato_Healthy",
+    "confidence": 17.84,
+    "created_at": "2026-09-13T10:23:15.460Z"
+  }
+},
+{
+  "model": "disease_detection.diseasedetection",
+  "pk": 8,
+  "fields": {
+    "farmer": [
+      "dinesh"
+    ],
+    "crop_name": "tomato",
+    "image": "disease_images/images_tomato_3thggyf.jpg",
+    "disease_name": "Tomato_Healthy",
+    "confidence": 17.75,
+    "created_at": "2026-09-13T13:49:30.338Z"
+  }
+},
+{
+  "model": "disease_detection.diseasedetection",
+  "pk": 9,
+  "fields": {
+    "farmer": [
+      "dinesh"
+    ],
+    "crop_name": "tomato",
+    "image": "disease_images/images_tomato_zf63yat.jpg",
+    "disease_name": "Tomato_Healthy",
+    "confidence": 17.75,
+    "created_at": "2026-09-14T06:30:06.137Z"
+  }
+},
+{
+  "model": "disease_detection.diseasedetection",
+  "pk": 10,
+  "fields": {
+    "farmer": [
+      "dinesh"
+    ],
+    "crop_name": "tomato",
+    "image": "disease_images/images_val_X2vLBCB.jpg",
+    "disease_name": "Tomato_Healthy",
+    "confidence": 17.84,
+    "created_at": "2026-09-14T07:01:26.451Z"
+  }
+},
+{
+  "model": "disease_detection.diseasedetection",
+  "pk": 11,
+  "fields": {
+    "farmer": [
+      "dinesh"
+    ],
+    "crop_name": "dwc",
+    "image": "disease_images/images_val_4blidOK.jpg",
+    "disease_name": "Tomato_Healthy",
+    "confidence": 17.84,
+    "created_at": "2026-09-14T07:02:34.062Z"
+  }
+},
+{
+  "model": "disease_detection.diseasedetection",
+  "pk": 12,
+  "fields": {
+    "farmer": [
+      "dinesh"
+    ],
+    "crop_name": "tomato",
+    "image": "disease_images/images_val_9ijyU8v.jpg",
+    "disease_name": "Tomato_Healthy",
+    "confidence": 17.84,
+    "created_at": "2026-09-14T07:40:09.175Z"
+  }
+},
+{
+  "model": "disease_detection.diseasedetection",
+  "pk": 13,
+  "fields": {
+    "farmer": [
+      "dinesh"
+    ],
+    "crop_name": "tomato",
+    "image": "disease_images/images_tomato_2GXVNsI.jpg",
+    "disease_name": "Tomato_Healthy",
+    "confidence": 17.75,
+    "created_at": "2026-09-14T07:42:23.120Z"
+  }
+}
+]

@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Disease History | AI Farmer{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/disease_history.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="disease-history-page">
+
+    <div class="disease-history-container">
+
+        <div class="disease-history-header">
+            <h1>🦠 Disease Detection History</h1>
+            <p>Your previous crop disease detection records</p>
+        </div>
+
+        {% if detections %}
+
+            {% for detection in detections %}
+
+                <div class="history-card">
+
+                    <div class="history-card-content">
+
+                        {% if detection.image %}
+                            <img
+                                src="{{ detection.image.url }}"
+                                alt="Crop Image"
+                                class="history-image"
+                            >
+                        {% endif %}
+
+                        <div class="history-info">
+
+                            <h2>
+                                {{ detection.disease_name }}
+                            </h2>
+
+                            <p>
+                                <strong>Confidence:</strong>
+                                {{ detection.confidence }}%
+                            </p>
+
+                            <p>
+                                <strong>Date:</strong>
+                                {{ detection.created_at|date:"d M Y, h:i A" }}
+                            </p>
+
+                            <a
+                                href="{% url 'disease_result' detection.id %}"
+                                class="history-button"
+                            >
+                                View Result
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <div class="history-empty">
+
+                <h2>🌱 No Detection History</h2>
+
+                <p>
+                    You have not detected any crop disease yet.
+                </p>
+
+                <a
+                    href="{% url 'disease_detection' %}"
+                    class="history-button"
+                >
+                    Detect Crop Disease
+                </a>
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,342 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Add Crop Activity | AI Farmer{% endblock %}
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'css/calendar.css' %}"><style>
+
+    .activity-page {
+        padding: 30px;
+        max-width: 850px;
+        margin: auto;
+    }
+
+    .activity-header {
+        margin-bottom: 25px;
+    }
+
+    .activity-header h1 {
+        margin: 0;
+        font-size: 30px;
+        color: #1f2937;
+    }
+
+    .activity-header p {
+        color: #777;
+        margin-top: 8px;
+        font-size: 15px;
+    }
+
+    .activity-form-card {
+        background: white;
+        border-radius: 22px;
+        padding: 30px;
+        box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #333;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: 13px 15px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        font-size: 15px;
+        box-sizing: border-box;
+        outline: none;
+        background: #fff;
+        transition: 0.2s ease;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        border-color: #198754;
+        box-shadow: 0 0 0 3px rgba(25, 135, 84, 0.10);
+    }
+
+    .form-group textarea {
+        min-height: 120px;
+        resize: vertical;
+    }
+
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .button-area {
+        display: flex;
+        gap: 12px;
+        margin-top: 25px;
+    }
+
+    .save-btn {
+        border: none;
+        background: #198754;
+        color: white;
+        padding: 13px 22px;
+        border-radius: 10px;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.2s ease;
+    }
+
+    .save-btn:hover {
+        background: #157347;
+        transform: translateY(-1px);
+    }
+
+    .back-btn {
+        text-decoration: none;
+        background: #f1f3f5;
+        color: #333;
+        padding: 13px 22px;
+        border-radius: 10px;
+        font-weight: 600;
+        transition: 0.2s ease;
+    }
+
+    .back-btn:hover {
+        background: #e2e6ea;
+        transform: translateY(-1px);
+    }
+
+    .info-box {
+        background: #f0fff6;
+        border-left: 4px solid #198754;
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 25px;
+        color: #245b3d;
+        line-height: 1.6;
+    }
+
+    @media (max-width: 650px) {
+
+        .activity-page {
+            padding: 20px;
+        }
+
+        .activity-header h1 {
+            font-size: 25px;
+        }
+
+        .activity-form-card {
+            padding: 20px;
+        }
+
+        .form-row {
+            grid-template-columns: 1fr;
+            gap: 0;
+        }
+
+        .button-area {
+            flex-direction: column;
+        }
+
+        .save-btn,
+        .back-btn {
+            width: 100%;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+    }
+</style>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="activity-page">
+
+    <div class="activity-header">
+
+        <h1>➕ Add Crop Activity</h1>
+
+        <p>
+            Apni crop ke important kaam ka schedule yahan add karein.
+        </p>
+
+    </div>
+
+
+    <div class="activity-form-card">
+
+        <div class="info-box">
+
+            🌱 <strong>Tip:</strong>
+            Sowing, irrigation, fertilizer aur harvesting jaise
+            important activities add karein.
+
+        </div>
+
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="crop_name">
+                        🌱 Crop Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="crop_name"
+                        name="crop_name"
+                        placeholder="Example: Tomato"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="activity">
+                        📌 Activity Type
+                    </label>
+
+                    <select
+                        id="activity"
+                        name="activity"
+                        required
+                    >
+
+                        <option value="">
+                            Select Activity
+                        </option>
+
+                        <option value="sowing">
+                            🌱 Sowing
+                        </option>
+
+                        <option value="irrigation">
+                            💧 Irrigation
+                        </option>
+
+                        <option value="fertilizer">
+                            🧪 Fertilizer
+                        </option>
+
+                        <option value="pesticide">
+                            💊 Pest/Disease Control
+                        </option>
+
+                        <option value="inspection">
+                            🔍 Crop Inspection
+                        </option>
+
+                        <option value="harvest">
+                            🌾 Harvest
+                        </option>
+
+                        <option value="other">
+                            📌 Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="activity_title">
+                    📝 Activity Title
+                </label>
+
+                <input
+                    type="text"
+                    id="activity_title"
+                    name="activity_title"
+                    placeholder="Example: First irrigation"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="activity_date">
+                    📅 Activity Date
+                </label>
+
+                <input
+                    type="date"
+                    id="activity_date"
+                    name="activity_date"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="description">
+                    📄 Description
+                </label>
+
+                <textarea
+                    id="description"
+                    name="description"
+                    placeholder="Activity ke baare me additional information..."
+                ></textarea>
+
+            </div>
+
+
+            <div class="button-area">
+
+                <button
+                    type="submit"
+                    class="save-btn"
+                >
+                    💾 Save Activity
+                </button>
+
+
+                <a
+                    href="{% url 'crop_calendar' %}"
+                    class="back-btn"
+                >
+                    ← Back to Calendar
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
+

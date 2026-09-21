@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Disease Detection Result | AI Farmer{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet"
+      href="{% static 'css/disease_result.css' %}">
+
+<div class="disease-result-page">
+
+    <div class="disease-result-container">
+
+        <div class="disease-result-header">
+
+            <h1>🌱 Crop Disease Detection Result</h1>
+
+            <p>
+                AI analysis of your uploaded crop image
+            </p>
+
+        </div>
+
+
+        <div class="result-card">
+
+            {% if detection.image %}
+
+                <img src="{{ detection.image.url }}"
+                     alt="Uploaded Crop Image">
+
+            {% endif %}
+
+
+            <div class="result-info">
+
+                <div class="result-info-box">
+
+                    <strong>Disease</strong>
+
+                    <span>
+                        {{ treatment.disease }}
+                    </span>
+
+                </div>
+
+
+                <div class="result-info-box">
+
+                    <strong>Confidence</strong>
+
+                    <span>
+                        {{ detection.confidence }}%
+                    </span>
+
+                </div>
+
+
+                <div class="result-info-box">
+
+                    <strong>Status</strong>
+
+                    <span>
+                        {{ treatment.status }}
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="result-section">
+
+                <h2>💊 Medicine Recommendation</h2>
+
+                <p>
+                    {{ treatment.medicine }}
+                </p>
+
+            </div>
+
+
+            <div class="result-section">
+
+                <h2>🌱 Treatment / Management</h2>
+
+                <ul>
+
+                    {% for item in treatment.treatment %}
+
+                        <li>
+                            {{ item }}
+                        </li>
+
+                    {% endfor %}
+
+                </ul>
+
+            </div>
+
+
+            {% if treatment.warning %}
+
+                <div class="result-warning">
+
+                    <h2>⚠️ Important Warning</h2>
+
+                    <p>
+                        {{ treatment.warning }}
+                    </p>
+
+                </div>
+
+            {% endif %}
+
+
+            <div class="result-actions">
+
+                <a href="{% url 'disease_detection' %}">
+                    🔍 Detect Another Image
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,591 @@
+
+/* =========================================================
+   EDIT HARVEST PAGE
+   Colorful Fresh Farming Theme
+========================================================= */
+
+.edit-harvest-page {
+    min-height: 100vh;
+    padding: 30px;
+
+    background:
+        radial-gradient(
+            circle at 8% 10%,
+            rgba(139, 195, 74, 0.20),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 92% 15%,
+            rgba(255, 193, 7, 0.18),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 85% 90%,
+            rgba(3, 169, 244, 0.13),
+            transparent 25%
+        ),
+        linear-gradient(
+            135deg,
+            #f1f8e9,
+            #e8f5e9,
+            #fffde7
+        );
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.edit-harvest-header {
+    max-width: 950px;
+    margin: 0 auto 25px;
+    padding: 23px 26px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1b5e20,
+            #2e7d32 45%,
+            #66bb6a
+        );
+
+    box-shadow:
+        0 12px 32px rgba(46, 125, 50, 0.28);
+
+    position: relative;
+    overflow: hidden;
+}
+
+
+.edit-harvest-header::after {
+    content: "";
+
+    position: absolute;
+
+    width: 190px;
+    height: 190px;
+
+    right: -55px;
+    top: -90px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.12);
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.edit-harvest-heading {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    position: relative;
+    z-index: 2;
+}
+
+
+.edit-harvest-icon {
+    width: 62px;
+    height: 62px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    font-size: 31px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff176,
+            #ffca28
+        );
+
+    box-shadow:
+        0 7px 18px rgba(255, 193, 7, 0.35);
+
+    transform: rotate(-3deg);
+}
+
+
+.edit-harvest-header h2 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 27px;
+    font-weight: 800;
+}
+
+
+.edit-harvest-header p {
+    margin: 6px 0 0;
+
+    color: #e8f5e9;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.edit-harvest-back-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 11px 18px;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #e8f5e9
+        );
+
+    color: #1b5e20;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    box-shadow:
+        0 6px 16px rgba(0, 0, 0, 0.12);
+
+    transition: 0.3s;
+
+    position: relative;
+    z-index: 3;
+}
+
+
+.edit-harvest-back-btn:hover {
+
+    transform: translateY(-3px);
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffde7,
+            #ffffff
+        );
+
+    color: #2e7d32;
+
+    box-shadow:
+        0 10px 20px rgba(0, 0, 0, 0.16);
+}
+
+
+/* =========================================================
+   FORM CARD
+========================================================= */
+
+.edit-harvest-card {
+
+    max-width: 950px;
+
+    margin: 0 auto;
+
+    padding: 32px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #fbfffa
+        );
+
+    border: 1px solid #c8e6c9;
+
+    box-shadow:
+        0 18px 45px rgba(46, 125, 50, 0.15);
+
+    position: relative;
+}
+
+
+/* =========================================================
+   COLOR STRIP
+========================================================= */
+
+.edit-harvest-card::before {
+
+    content: "";
+
+    display: block;
+
+    height: 5px;
+
+    margin: -32px -32px 28px;
+
+    border-radius: 25px 25px 0 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #2e7d32,
+            #8bc34a,
+            #fbc02d,
+            #ff9800,
+            #03a9f4
+        );
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.edit-harvest-card .form-label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #263238;
+
+    font-size: 14px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.edit-harvest-card .form-control,
+.edit-harvest-card .form-select {
+
+    width: 100%;
+
+    min-height: 50px;
+
+    padding: 11px 14px;
+
+    border: 2px solid #e0e0e0;
+
+    border-radius: 13px;
+
+    background: #ffffff;
+
+    color: #263238;
+
+    font-size: 14px;
+
+    transition: all 0.25s ease;
+
+    box-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.03);
+}
+
+
+.edit-harvest-card .form-control:hover,
+.edit-harvest-card .form-select:hover {
+
+    border-color: #a5d6a7;
+
+    background: #fbfffb;
+}
+
+
+.edit-harvest-card .form-control:focus,
+.edit-harvest-card .form-select:focus {
+
+    border-color: #43a047;
+
+    outline: none;
+
+    background: #fafffa;
+
+    box-shadow:
+        0 0 0 4px rgba(67, 160, 71, 0.12),
+        0 5px 15px rgba(46, 125, 50, 0.08);
+}
+
+
+.edit-harvest-card textarea.form-control {
+
+    min-height: 125px;
+
+    resize: vertical;
+}
+
+
+/* =========================================================
+   INDIVIDUAL INPUT COLORS
+========================================================= */
+
+#crop_name {
+    border-left: 4px solid #66bb6a;
+}
+
+
+#expected_harvest_date {
+    border-left: 4px solid #42a5f5;
+}
+
+
+#actual_harvest_date {
+    border-left: 4px solid #26c6da;
+}
+
+
+#quantity {
+    border-left: 4px solid #ffb300;
+}
+
+
+#quantity_unit {
+    border-left: 4px solid #ab47bc;
+}
+
+
+#status {
+    border-left: 4px solid #ff7043;
+}
+
+
+#notes {
+    border-left: 4px solid #8bc34a;
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.edit-harvest-actions {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 10px;
+
+    padding-top: 22px;
+
+    border-top: 1px solid #dcebdc;
+}
+
+
+/* =========================================================
+   CANCEL BUTTON
+========================================================= */
+
+.edit-harvest-cancel {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 125px;
+
+    padding: 12px 20px;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffebee,
+            #ffcdd2
+        );
+
+    color: #c62828;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 5px 12px rgba(198, 40, 40, 0.12);
+
+    transition: 0.25s;
+}
+
+
+.edit-harvest-cancel:hover {
+
+    transform: translateY(-3px);
+
+    background:
+        linear-gradient(
+            135deg,
+            #ef9a9a,
+            #e57373
+        );
+
+    color: #ffffff;
+
+    box-shadow:
+        0 8px 18px rgba(198, 40, 40, 0.22);
+}
+
+
+/* =========================================================
+   UPDATE BUTTON
+========================================================= */
+
+.edit-harvest-save {
+
+    min-width: 200px;
+
+    padding: 12px 20px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1565c0,
+            #1976d2,
+            #42a5f5
+        );
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(21, 101, 192, 0.28);
+
+    transition: all 0.3s ease;
+}
+
+
+.edit-harvest-save:hover {
+
+    transform: translateY(-3px) scale(1.02);
+
+    background:
+        linear-gradient(
+            135deg,
+            #0d47a1,
+            #1565c0,
+            #42a5f5
+        );
+
+    box-shadow:
+        0 12px 25px rgba(21, 101, 192, 0.38);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .edit-harvest-page {
+        padding: 15px;
+    }
+
+
+    .edit-harvest-header {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        padding: 18px;
+
+        border-radius: 18px;
+    }
+
+
+    .edit-harvest-heading {
+        gap: 12px;
+    }
+
+
+    .edit-harvest-icon {
+
+        width: 52px;
+        height: 52px;
+
+        font-size: 27px;
+    }
+
+
+    .edit-harvest-header h2 {
+        font-size: 21px;
+    }
+
+
+    .edit-harvest-header p {
+        font-size: 12px;
+    }
+
+
+    .edit-harvest-back-btn {
+        width: 100%;
+    }
+
+
+    .edit-harvest-card {
+
+        padding: 20px;
+
+        border-radius: 19px;
+    }
+
+
+    .edit-harvest-card::before {
+
+        margin: -20px -20px 22px;
+    }
+
+
+    .edit-harvest-actions {
+
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .edit-harvest-cancel,
+    .edit-harvest-save {
+
+        width: 100%;
+    }
+}
+

@@ -1,0 +1,450 @@
+/* =====================================================
+   AI FARMER - MARKET PRICES
+   Premium Agriculture Market Theme
+   ===================================================== */
+
+.market-page {
+    width: 100%;
+    min-height: 85vh;
+
+    padding: 40px 25px;
+
+    box-sizing: border-box;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            #dcfce7 0%,
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            #dbeafe 0%,
+            transparent 32%
+        ),
+        linear-gradient(
+            135deg,
+            #f0fdf4,
+            #f8fafc
+        );
+}
+
+
+/* =====================================================
+   HEADER
+   ===================================================== */
+
+.market-header {
+    max-width: 1150px;
+
+    margin: 0 auto 32px;
+
+    padding: 28px 32px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 22px;
+
+    border-radius: 26px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dcfce7,
+            #dbeafe,
+            #ecfdf5
+        );
+
+    border: 2px solid #86efac;
+
+    box-shadow:
+        0 15px 35px rgba(22, 101, 52, 0.12);
+}
+
+
+/* ICON */
+
+.market-icon {
+    width: 75px;
+    height: 75px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #16a34a,
+            #22c55e
+        );
+
+    border: 4px solid #dcfce7;
+
+    font-size: 36px;
+
+    box-shadow:
+        0 10px 25px rgba(22, 163, 74, 0.25);
+}
+
+
+/* TITLE */
+
+.market-header h1 {
+    margin: 0;
+
+    color: #14532d;
+
+    font-size: 34px;
+
+    font-weight: 900;
+}
+
+.market-header p {
+    margin: 8px 0 0;
+
+    color: #64748b;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   MARKET GRID
+   ===================================================== */
+
+.market-grid {
+    width: 100%;
+
+    max-width: 1150px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 22px;
+}
+
+
+/* =====================================================
+   MARKET CARD
+   ===================================================== */
+
+.market-card {
+    padding: 25px;
+
+    border-radius: 24px;
+
+    background:
+        rgba(255, 255, 255, 0.97);
+
+    border: 2px solid #d1fae5;
+
+    box-shadow:
+        0 12px 30px rgba(15, 23, 42, 0.08);
+
+    transition:
+        all 0.3s ease;
+}
+
+.market-card:hover {
+    transform:
+        translateY(-7px);
+
+    border-color:
+        #22c55e;
+
+    box-shadow:
+        0 20px 42px rgba(22, 163, 74, 0.16);
+}
+
+
+/* =====================================================
+   CARD TOP
+   ===================================================== */
+
+.market-card-top {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding-bottom: 18px;
+
+    border-bottom:
+        1px solid #e2e8f0;
+}
+
+
+/* CROP ICON */
+
+.crop-icon {
+    width: 58px;
+    height: 58px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 17px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dcfce7,
+            #dbeafe
+        );
+
+    border: 2px solid #86efac;
+
+    font-size: 28px;
+}
+
+
+/* CROP NAME */
+
+.market-card h2 {
+    margin: 0;
+
+    color: #166534;
+
+    font-size: 22px;
+
+    font-weight: 900;
+}
+
+.market-card-top p {
+    margin: 5px 0 0;
+
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   PRICE
+   ===================================================== */
+
+.market-price {
+    margin-top: 22px;
+
+    display: flex;
+
+    align-items: baseline;
+
+    gap: 9px;
+}
+
+.market-price span {
+    color: #1d4ed8;
+
+    font-size: 32px;
+
+    font-weight: 900;
+}
+
+.market-price small {
+    color: #64748b;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   PRICE CHANGE
+   ===================================================== */
+
+.market-change {
+    display: inline-block;
+
+    margin-top: 12px;
+
+    padding: 7px 12px;
+
+    border-radius: 10px;
+
+    font-size: 13px;
+
+    font-weight: 800;
+}
+
+.price-up {
+    color: #166534;
+
+    background: #dcfce7;
+
+    border: 1px solid #86efac;
+}
+
+.price-down {
+    color: #b91c1c;
+
+    background: #fee2e2;
+
+    border: 1px solid #fca5a5;
+}
+
+
+/* =====================================================
+   CARD FOOTER
+   ===================================================== */
+
+.market-footer {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 22px;
+
+    padding-top: 14px;
+
+    border-top:
+        1px solid #e2e8f0;
+
+    color: #94a3b8;
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   FARMER TIP
+   ===================================================== */
+
+.market-info {
+    max-width: 1150px;
+
+    margin: 30px auto 0;
+
+    padding: 24px 28px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fefce8,
+            #f0fdf4,
+            #eff6ff
+        );
+
+    border: 2px solid #facc15;
+
+    box-shadow:
+        0 10px 25px rgba(22, 101, 52, 0.08);
+}
+
+.market-info h2 {
+    margin: 0 0 10px;
+
+    color: #166534;
+
+    font-size: 21px;
+
+    font-weight: 900;
+}
+
+.market-info p {
+    margin: 0;
+
+    color: #475569;
+
+    line-height: 1.7;
+
+    font-size: 15px;
+}
+
+
+/* =====================================================
+   TABLET
+   ===================================================== */
+
+@media (max-width: 950px) {
+
+    .market-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 650px) {
+
+    .market-page {
+        padding: 25px 12px;
+    }
+
+    .market-header {
+        padding: 22px;
+
+        flex-direction: column;
+
+        text-align: center;
+
+        border-radius: 22px;
+    }
+
+    .market-header h1 {
+        font-size: 28px;
+    }
+
+    .market-header p {
+        font-size: 14px;
+    }
+
+    .market-grid {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+    .market-card {
+        padding: 21px;
+    }
+
+    .market-price span {
+        font-size: 28px;
+    }
+
+    .market-info {
+        padding: 20px;
+    }
+}
+/* Crop Image */
+.crop-image-box {
+    width: 100%;
+    height: 120px;
+    overflow: hidden;
+    border-radius: 14px;
+    margin-bottom: 12px;
+}
+
+.crop-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}

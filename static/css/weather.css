@@ -1,0 +1,814 @@
+/* =====================================================
+   AI FARMER - WEATHER PAGE
+   PREMIUM COLORFUL THEME
+   ===================================================== */
+
+
+/* =====================================================
+   LIVE WEATHER VIDEO
+   ===================================================== */
+
+.weather-live-background {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+.weather-live-background video {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* =====================================================
+   LIVE WEATHER VIDEO - FIXED FRAME
+   ===================================================== */
+
+.weather-live-background {
+    position: fixed;
+
+    top: 95px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 92%;
+    max-width: 1400px;
+
+    height: 330px;
+
+    z-index: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    border-radius: 30px;
+
+    border: 2px solid rgba(255, 255, 255, 0.65);
+
+    box-shadow:
+        0 20px 55px rgba(15, 23, 42, 0.20);
+}
+
+
+/* VIDEO */
+
+.weather-live-background video {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+/* VIDEO COLOR OVERLAY */
+
+.weather-live-background::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(14, 165, 233, 0.25),
+            rgba(37, 99, 235, 0.18),
+            rgba(16, 185, 129, 0.18),
+            rgba(124, 58, 237, 0.12)
+        );
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   MOBILE VIDEO FRAME
+   ===================================================== */
+
+@media (max-width: 800px) {
+
+    .weather-live-background {
+        top: 75px;
+
+        width: 94%;
+
+        height: 230px;
+
+        border-radius: 22px;
+    }
+}
+
+
+
+/* =====================================================
+   MAIN PAGE
+   ===================================================== */
+
+.form-page {
+    position: relative;
+
+    z-index: 1;
+
+    width: 100%;
+
+    min-height: 90vh;
+
+    padding: 45px 20px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+/* =====================================================
+   MAIN CARD
+   ===================================================== */
+
+.form-page .form-card {
+    width: 100%;
+
+    max-width: 950px;
+
+    padding: 40px;
+
+    box-sizing: border-box;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border-radius: 30px;
+
+    border: 4px solid #38bdf8;
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.30),
+        0 10px 30px rgba(14, 165, 233, 0.25);
+
+    backdrop-filter: blur(15px);
+}
+
+
+/* =====================================================
+   HEADER
+   ===================================================== */
+
+.form-header {
+    text-align: center;
+
+    padding: 28px;
+
+    margin-bottom: 30px;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e0f2fe,
+            #dbeafe,
+            #dcfce7
+        );
+
+    border: 2px solid #bae6fd;
+}
+
+
+/* =====================================================
+   WEATHER ICON
+   ===================================================== */
+
+.form-icon {
+    width: 90px;
+    height: 90px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #38bdf8,
+            #2563eb,
+            #22c55e
+        );
+
+    font-size: 45px;
+
+    box-shadow:
+        0 12px 30px rgba(37, 99, 235, 0.35);
+}
+
+
+/* =====================================================
+   TITLE
+   ===================================================== */
+
+.form-header h1 {
+    margin: 0;
+
+    color: #075985;
+
+    font-size: 35px;
+
+    font-weight: 900;
+}
+
+
+/* =====================================================
+   DESCRIPTION
+   ===================================================== */
+
+.form-header p {
+    margin-top: 12px;
+
+    color: #475569;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   CITY FORM
+   ===================================================== */
+
+.crop-form-fields {
+    margin-bottom: 10px;
+}
+
+.crop-form-fields label {
+    display: block;
+
+    margin-bottom: 10px;
+
+    padding: 12px 15px;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e0f2fe,
+            #dbeafe
+        );
+
+    border-left: 5px solid #0ea5e9;
+
+    color: #075985;
+
+    font-weight: 800;
+}
+
+
+/* =====================================================
+   CITY INPUT
+   ===================================================== */
+
+.crop-form-fields input {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 15px 17px;
+
+    border-radius: 14px;
+
+    border: 3px solid #7dd3fc;
+
+    background: #f8fafc;
+
+    color: #1e293b;
+
+    font-size: 16px;
+
+    outline: none;
+
+    transition: 0.3s ease;
+}
+
+.crop-form-fields input:hover {
+    border-color: #38bdf8;
+
+    background: #ffffff;
+}
+
+.crop-form-fields input:focus {
+    border-color: #2563eb;
+
+    background: #eff6ff;
+
+    box-shadow:
+        0 0 0 5px rgba(37, 99, 235, 0.12);
+}
+
+.crop-form-fields input::placeholder {
+    color: #94a3b8;
+}
+
+
+/* =====================================================
+   WEATHER BUTTON
+   ===================================================== */
+
+.form-card .auth-button {
+    width: 100%;
+
+    margin-top: 22px;
+
+    padding: 17px 25px;
+
+    border: none;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #0284c7,
+            #2563eb,
+            #7c3aed
+        );
+
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 28px rgba(37, 99, 235, 0.35);
+
+    transition: all 0.3s ease;
+}
+
+.form-card .auth-button:hover {
+    transform: translateY(-4px);
+
+    background:
+        linear-gradient(
+            90deg,
+            #0369a1,
+            #1d4ed8,
+            #6d28d9
+        );
+
+    box-shadow:
+        0 15px 35px rgba(37, 99, 235, 0.45);
+}
+
+
+/* =====================================================
+   ERROR
+   ===================================================== */
+
+.weather-error {
+    margin-top: 20px;
+
+    padding: 17px;
+
+    border-radius: 16px;
+
+    background: #fee2e2;
+
+    border: 2px solid #f87171;
+
+    color: #991b1b;
+
+    text-align: center;
+
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   WEATHER RESULT
+   ===================================================== */
+
+.weather-result {
+    margin-top: 32px;
+
+    padding: 30px;
+
+    border-radius: 26px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eff6ff,
+            #ecfdf5,
+            #fff7ed
+        );
+
+    border: 3px solid #60a5fa;
+
+    box-shadow:
+        0 15px 35px rgba(37, 99, 235, 0.15);
+}
+
+
+/* =====================================================
+   LOCATION
+   ===================================================== */
+
+.weather-location {
+    text-align: center;
+
+    margin-bottom: 25px;
+
+    padding: 20px;
+
+    border-radius: 20px;
+
+    background: white;
+
+    border: 2px solid #bfdbfe;
+}
+
+.weather-location h2 {
+    margin: 0;
+
+    color: #075985;
+
+    font-size: 25px;
+
+    font-weight: 900;
+}
+
+.weather-location p {
+    margin-top: 10px;
+
+    color: #64748b;
+
+    font-size: 16px;
+}
+
+.weather-location strong {
+    color: #2563eb;
+}
+
+
+/* =====================================================
+   MAIN TEMPERATURE
+   ===================================================== */
+
+.weather-main {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 25px;
+
+    padding: 25px;
+
+    margin-bottom: 25px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dbeafe,
+            #e0f2fe,
+            #dcfce7
+        );
+
+    border: 2px solid #7dd3fc;
+}
+
+.weather-main img {
+    width: 110px;
+
+    height: 110px;
+
+    object-fit: contain;
+
+    background: rgba(255,255,255,0.65);
+
+    border-radius: 50%;
+}
+
+.weather-main h1 {
+    margin: 0;
+
+    color: #1d4ed8;
+
+    font-size: 48px;
+
+    font-weight: 900;
+}
+
+.weather-main p {
+    margin-top: 5px;
+
+    color: #475569;
+
+    font-size: 15px;
+}
+
+
+/* =====================================================
+   WEATHER GRID
+   ===================================================== */
+
+.weather-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 16px;
+
+    margin-bottom: 25px;
+}
+
+
+/* =====================================================
+   WEATHER BOX
+   ===================================================== */
+
+.weather-box {
+    padding: 22px 15px;
+
+    text-align: center;
+
+    border-radius: 20px;
+
+    background: #ffffff;
+
+    border: 2px solid #bae6fd;
+
+    box-shadow:
+        0 8px 20px rgba(14, 165, 233, 0.08);
+
+    transition: all 0.3s ease;
+}
+
+.weather-box:hover {
+    transform: translateY(-6px);
+
+    border-color: #22c55e;
+
+    box-shadow:
+        0 12px 28px rgba(34, 197, 94, 0.15);
+}
+
+.weather-box span {
+    display: block;
+
+    font-size: 34px;
+
+    margin-bottom: 8px;
+}
+
+.weather-box h3 {
+    margin: 5px 0;
+
+    color: #075985;
+
+    font-size: 15px;
+}
+
+.weather-box p {
+    margin: 8px 0;
+
+    color: #2563eb;
+
+    font-size: 19px;
+
+    font-weight: 900;
+}
+
+.weather-box small {
+    display: block;
+
+    color: #94a3b8;
+
+    line-height: 1.4;
+}
+
+
+/* =====================================================
+   FARMING SECTION
+   ===================================================== */
+
+.farming-section {
+    margin-top: 25px;
+
+    padding: 25px;
+
+    border-radius: 22px;
+
+    background: #ffffff;
+
+    border: 2px solid #86efac;
+
+    box-shadow:
+        0 8px 22px rgba(34, 197, 94, 0.08);
+}
+
+.farming-section h2 {
+    margin-top: 0;
+
+    margin-bottom: 15px;
+
+    color: #166534;
+
+    font-size: 23px;
+
+    font-weight: 900;
+}
+
+.farming-section p {
+    color: #475569;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   ADVICE BOX
+   ===================================================== */
+
+.advice-box {
+    margin-top: 15px;
+
+    padding: 18px;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f0fdf4,
+            #ecfeff
+        );
+
+    border-left: 6px solid #22c55e;
+
+    color: #334155;
+
+    line-height: 1.7;
+}
+
+.advice-box strong {
+    color: #166534;
+}
+
+
+/* =====================================================
+   ALERT BOX
+   ===================================================== */
+
+.alert-box {
+    padding: 19px;
+
+    border-radius: 17px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff7ed,
+            #fef2f2
+        );
+
+    border-left: 6px solid #f97316;
+
+    color: #7c2d12;
+
+    line-height: 1.7;
+}
+
+.alert-box strong {
+    color: #c2410c;
+}
+
+
+/* =====================================================
+   FARMER TIP
+   ===================================================== */
+
+.farmer-tip {
+    margin-top: 25px;
+
+    padding: 22px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fef3c7,
+            #dcfce7,
+            #dbeafe
+        );
+
+    border: 2px solid #fbbf24;
+
+    color: #334155;
+
+    line-height: 1.7;
+
+    text-align: center;
+}
+
+.farmer-tip strong {
+    color: #166534;
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 800px) {
+
+    .form-page {
+        padding: 25px 12px;
+    }
+
+    .form-page .form-card {
+        padding: 22px 17px;
+
+        border-radius: 22px;
+    }
+
+    .form-header {
+        padding: 20px;
+    }
+
+    .form-header h1 {
+        font-size: 27px;
+    }
+
+    .form-icon {
+        width: 70px;
+        height: 70px;
+
+        font-size: 35px;
+    }
+
+    .weather-main {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .weather-main h1 {
+        font-size: 38px;
+    }
+
+    .weather-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .weather-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .weather-result {
+        padding: 18px;
+    }
+
+    .weather-main img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .weather-location h2 {
+        font-size: 21px;
+    }
+}

@@ -1,0 +1,149 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Harvest Management | AI Farmer{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/harvest.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="harvest-page">
+
+    <!-- Header -->
+    <div class="harvest-header">
+        <div class="harvest-heading">
+            <div class="harvest-icon">🌾</div>
+            <div>
+                <h2>Harvest Management</h2>
+                <p>Manage and track your crop harvesting.</p>
+            </div>
+        </div>
+
+        <a href="{% url 'harvest:add_harvest' %}" class="harvest-add-btn">
+            ➕ Add Harvest
+        </a>
+    </div>
+
+    <!-- Harvest Records -->
+    {% if harvests %}
+
+    <div class="row">
+        {% for harvest in harvests %}
+
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="harvest-card">
+                <div class="harvest-card-top"></div>
+
+                <div class="harvest-card-body">
+                    <h4 class="harvest-card-title">
+                        🌾 {{ harvest.crop_name }}
+                    </h4>
+
+                    <div class="harvest-info">
+                        <span>📅</span>
+                        <strong>Expected:</strong>
+                        <span>{{ harvest.expected_harvest_date }}</span>
+                    </div>
+
+                    <div class="harvest-info">
+                        <span>📅</span>
+                        <strong>Actual:</strong>
+                        <span>
+                            {% if harvest.actual_harvest_date %}
+                                {{ harvest.actual_harvest_date }}
+                            {% else %}
+                                Not harvested yet
+                            {% endif %}
+                        </span>
+                    </div>
+
+                    <div class="harvest-info">
+                        <span>⚖️</span>
+                        <strong>Quantity:</strong>
+                        <span>
+                            {% if harvest.quantity %}
+                                {{ harvest.quantity }} {{ harvest.quantity_unit }}
+                            {% else %}
+                                Not available
+                            {% endif %}
+                        </span>
+                    </div>
+
+                    <div class="harvest-info">
+                        <span>📌</span>
+                        <strong>Status:</strong>
+                        <span class="harvest-status">
+                            {{ harvest.get_status_display }}
+                        </span>
+                    </div>
+
+                    {% if harvest.notes %}
+                    <div class="harvest-notes">
+                        📝 <strong>Notes:</strong>
+                        {{ harvest.notes }}
+                    </div>
+                    {% endif %}
+
+                    <!-- Actions -->
+                    <div class="harvest-actions">
+                        <a
+                            href="{% url 'harvest:edit_harvest' harvest.id %}"
+                            class="harvest-edit-btn">
+                            ✏️ Edit
+                        </a>
+
+                        {% if harvest.status != "Completed" %}
+                        <form
+                            method="POST"
+                            action="{% url 'harvest:complete_harvest' harvest.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="harvest-complete-btn">
+                                ✅ Complete
+                            </button>
+                        </form>
+                        {% endif %}
+
+                        <form
+                            method="POST"
+                            action="{% url 'harvest:delete_harvest' harvest.id %}">
+                            {% csrf_token %}
+                            <button
+                                type="submit"
+                                class="harvest-delete-btn"
+                                onclick="return confirm('Are you sure you want to delete this harvest record?');">
+                                🗑️ Delete
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+
+    {% else %}
+
+    <!-- Empty State -->
+    <div class="harvest-empty">
+        <div class="harvest-empty-icon">🌱</div>
+
+        <h4>No Harvest Records</h4>
+
+        <p>
+            Add your first harvest record to start tracking your crops.
+        </p>
+
+        <a href="{% url 'harvest:add_harvest' %}" class="harvest-add-btn">
+            ➕ Add First Harvest
+        </a>
+    </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

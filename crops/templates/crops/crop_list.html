@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}My Crops | AI Farmer{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/crops.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<div class="page-header">
+
+    <div>
+        <h1>🌱 My Crops</h1>
+        <p>Manage your farming crops and cultivation details.</p>
+    </div>
+
+    <a href="{% url 'add_crop' %}" class="auth-button">
+        + Add New Crop
+    </a>
+
+</div>
+
+
+<!-- Crop Cards -->
+<div class="dashboard-cards">
+
+    {% for crop in crops %}
+
+    <div class="card crop-card">
+
+        <div class="card-icon">
+            🌾
+        </div>
+
+        <h3>{{ crop.crop_name }}</h3>
+
+        <div class="crop-details">
+
+            <p>
+                <strong>Season</strong>
+                <span>{{ crop.season }}</span>
+            </p>
+
+            <p>
+                <strong>Land Area</strong>
+                <span>{{ crop.land_area }} acres</span>
+            </p>
+
+            <p>
+                <strong>Soil Type</strong>
+                <span>{{ crop.soil_type }}</span>
+            </p>
+
+            <p>
+                <strong>Sowing Date</strong>
+                <span>{{ crop.sowing_date|default:"Not provided" }}</span>
+            </p>
+
+            <p>
+                <strong>Irrigation</strong>
+                <span>{{ crop.irrigation_method|default:"Not provided" }}</span>
+            </p>
+
+        </div>
+
+        <div class="crop-actions">
+
+            <a href="{% url 'edit_crop' crop.id %}" class="edit-button">
+                ✏️ Edit
+            </a>
+
+            <a href="{% url 'delete_crop' crop.id %}" class="delete-button">
+                🗑️ Delete
+            </a>
+
+        </div>
+
+    </div>
+
+    {% empty %}
+
+    <div class="card empty-crops">
+
+        <div class="card-icon">
+            🌱
+        </div>
+
+        <h3>No Crops Added Yet</h3>
+
+        <p>
+            Start managing your farm by adding your first crop.
+        </p>
+
+        <a href="{% url 'add_crop' %}" class="auth-button">
+            + Add Your First Crop
+        </a>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,420 @@
+
+/* =========================================
+   AI FARMER - ADD CROP
+   Premium Green Agriculture Theme
+   ========================================= */
+
+.form-page {
+    width: 100%;
+    min-height: 88vh;
+    padding: 50px 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
+
+    background:
+        radial-gradient(circle at top left, #dcfce7 0%, transparent 35%),
+        radial-gradient(circle at bottom right, #dbeafe 0%, transparent 35%),
+        linear-gradient(135deg, #f0fdf4, #f8fafc);
+}
+
+
+/* =========================================
+   MAIN CARD
+   ========================================= */
+
+.form-page .form-card {
+    width: 100%;
+    max-width: 760px;
+
+    padding: 42px;
+
+    box-sizing: border-box;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border: 1px solid #bbf7d0;
+    border-radius: 30px;
+
+    box-shadow:
+        0 25px 60px rgba(22, 101, 52, 0.12),
+        0 5px 20px rgba(15, 23, 42, 0.06);
+
+    backdrop-filter: blur(12px);
+
+    transition: all 0.35s ease;
+}
+
+.form-page .form-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 30px 70px rgba(22, 101, 52, 0.18),
+        0 8px 25px rgba(15, 23, 42, 0.08);
+}
+
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.form-header {
+    text-align: center;
+    margin-bottom: 32px;
+
+    padding: 28px 20px;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f0fdf4,
+            #ecfdf5,
+            #eff6ff
+        );
+
+    border: 1px solid #bbf7d0;
+}
+
+
+/* =========================================
+   ICON
+   ========================================= */
+
+.form-icon {
+    width: 88px;
+    height: 88px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 26px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #16a34a,
+            #22c55e,
+            #84cc16
+        );
+
+    border: 4px solid #dcfce7;
+
+    font-size: 43px;
+
+    box-shadow:
+        0 12px 28px rgba(22, 163, 74, 0.25);
+
+    transition: all 0.3s ease;
+}
+
+.form-icon:hover {
+    transform: scale(1.08) rotate(2deg);
+}
+
+
+/* =========================================
+   TITLE
+   ========================================= */
+
+.form-header h1 {
+    margin: 0;
+
+    color: #14532d;
+
+    font-size: 34px;
+    font-weight: 900;
+
+    letter-spacing: -0.5px;
+}
+
+.form-header p {
+    margin: 10px auto 0;
+
+    max-width: 520px;
+
+    color: #64748b;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   FORM FIELDS
+   ========================================= */
+
+.crop-form-fields {
+    margin-top: 28px;
+}
+
+.crop-form-fields p {
+    margin: 0 0 20px;
+}
+
+
+/* =========================================
+   LABELS
+   ========================================= */
+
+.crop-form-fields label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    padding-left: 4px;
+
+    color: #166534;
+
+    font-size: 15px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================
+   INPUTS
+   ========================================= */
+
+.crop-form-fields input,
+.crop-form-fields select,
+.crop-form-fields textarea {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 15px 17px;
+
+    border-radius: 14px;
+
+    border: 2px solid #d1fae5;
+
+    background: #f8fafc;
+
+    color: #1e293b;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition: all 0.3s ease;
+}
+
+
+/* Hover */
+
+.crop-form-fields input:hover,
+.crop-form-fields select:hover,
+.crop-form-fields textarea:hover {
+    border-color: #86efac;
+
+    background: #ffffff;
+
+    transform: translateY(-1px);
+}
+
+
+/* Focus */
+
+.crop-form-fields input:focus,
+.crop-form-fields select:focus,
+.crop-form-fields textarea:focus {
+    border-color: #22c55e;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 4px rgba(34, 197, 94, 0.12),
+        0 5px 15px rgba(22, 163, 74, 0.08);
+}
+
+
+/* Placeholder */
+
+.crop-form-fields input::placeholder,
+.crop-form-fields textarea::placeholder {
+    color: #94a3b8;
+}
+
+
+/* =========================================
+   HELP / ERROR
+   ========================================= */
+
+.crop-form-fields .helptext {
+    display: block;
+
+    margin-top: 6px;
+
+    color: #94a3b8;
+
+    font-size: 12px;
+}
+
+.crop-form-fields .errorlist {
+    margin: 5px 0;
+
+    padding: 0;
+
+    list-style: none;
+
+    color: #dc2626;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   ADD CROP BUTTON
+   ========================================= */
+
+.form-card .auth-button {
+    width: 100%;
+
+    margin-top: 12px;
+
+    padding: 16px 24px;
+
+    border: none;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #15803d,
+            #16a34a,
+            #22c55e
+        );
+
+    color: #ffffff;
+
+    font-size: 17px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px rgba(22, 163, 74, 0.28);
+
+    transition: all 0.3s ease;
+}
+
+.form-card .auth-button:hover {
+    transform: translateY(-4px);
+
+    background:
+        linear-gradient(
+            135deg,
+            #166534,
+            #15803d,
+            #16a34a
+        );
+
+    box-shadow:
+        0 15px 32px rgba(22, 163, 74, 0.38);
+}
+
+.form-card .auth-button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   FOOTER / BACK LINK
+   ========================================= */
+
+.form-footer {
+    margin-top: 26px;
+
+    padding-top: 20px;
+
+    text-align: center;
+
+    border-top: 1px solid #e2e8f0;
+}
+
+.form-footer a {
+    color: #2563eb;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition: 0.3s ease;
+}
+
+.form-footer a:hover {
+    color: #1d4ed8;
+
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 650px) {
+
+    .form-page {
+        min-height: 85vh;
+
+        padding: 25px 12px;
+    }
+
+    .form-page .form-card {
+        padding: 20px 16px;
+
+        border-radius: 24px;
+    }
+
+    .form-header {
+        padding: 22px 15px;
+
+        border-radius: 20px;
+    }
+
+    .form-icon {
+        width: 70px;
+        height: 70px;
+
+        font-size: 34px;
+
+        border-radius: 21px;
+    }
+
+    .form-header h1 {
+        font-size: 27px;
+    }
+
+    .form-header p {
+        font-size: 14px;
+    }
+
+    .crop-form-fields input,
+    .crop-form-fields select,
+    .crop-form-fields textarea {
+        padding: 13px 14px;
+    }
+
+    .form-card .auth-button {
+        padding: 14px 20px;
+
+        font-size: 15px;
+    }
+}
+

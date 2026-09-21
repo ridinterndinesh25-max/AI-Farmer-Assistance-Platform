@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Add Crop | AI Farmer{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/add_crop.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="form-page">
+
+    <div class="form-card">
+
+        <div class="form-header">
+            <div class="form-icon">🌱</div>
+
+            <h1>Add New Crop</h1>
+
+            <p>
+                Enter your crop and farming information.
+            </p>
+        </div>
+
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <div class="crop-form-fields">
+                {{ form.as_p }}
+            </div>
+
+            <button type="submit" class="auth-button">
+                🌱 Add Crop
+            </button>
+
+        </form>
+
+
+        <div class="form-footer">
+
+            <a href="{% url 'crop_list' %}">
+                ← Back to My Crops
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

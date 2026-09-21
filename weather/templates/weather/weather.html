@@ -1,0 +1,496 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Weather | AI Farmer{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/weather.css' %}">
+{% endblock %}
+
+{% block content %}
+
+{% if weather %}
+
+<!-- =====================================================
+     LIVE WEATHER BACKGROUND
+====================================================== -->
+
+<div class="weather-live-background">
+
+    <video
+        id="weatherVideo"
+        autoplay
+        muted
+        loop
+        playsinline
+        data-condition="{{ weather.main }}"
+        data-is-day="{{ weather.is_day|yesno:'true,false' }}"
+    >
+
+        <!-- Default video -->
+        <source
+            id="weatherVideoSource"
+            src="{% static 'weather/videos/clouds.mp4' %}"
+            type="video/mp4"
+        >
+
+    </video>
+
+</div>
+
+{% endif %}
+
+
+<div class="form-page">
+
+    <div class="form-card disease-card">
+
+        <!-- =================================================
+             HEADER
+        ================================================== -->
+
+        <div class="form-header">
+
+            <div class="form-icon">
+                🌦️🌾
+            </div>
+
+            <h1>
+                Weather & Farming Advice
+            </h1>
+
+            <p>
+                Check today's weather and get simple advice for your farming.
+            </p>
+
+        </div>
+
+
+        <!-- =================================================
+             CITY SEARCH
+        ================================================== -->
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <div class="crop-form-fields">
+
+                <label for="city">
+                    📍 Enter Your City
+                </label>
+
+                <input
+                    type="text"
+                    id="city"
+                    name="city"
+                    placeholder="Enter city"
+                    required
+                >
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="auth-button"
+            >
+                🌤️ Check Weather
+            </button>
+
+        </form>
+
+
+        <!-- =================================================
+             ERROR
+        ================================================== -->
+
+        {% if error %}
+
+            <div class="weather-error">
+                ⚠️ {{ error }}
+            </div>
+
+        {% endif %}
+
+
+        {% if weather %}
+
+        <!-- =================================================
+             CURRENT WEATHER
+        ================================================== -->
+
+        <div class="weather-result">
+
+
+            <!-- LOCATION -->
+
+            <div class="weather-location">
+
+                <h2>
+                    📍 {{ weather.city }}, {{ weather.country }}
+                </h2>
+
+                <p>
+                    Aaj ka Mausam:
+                    <strong>
+                        {{ weather.description|title }}
+                    </strong>
+                </p>
+
+            </div>
+
+
+            <!-- =================================================
+                 TEMPERATURE
+            ================================================== -->
+
+            <div class="weather-main">
+
+                <img
+                    src="https://openweathermap.org/img/wn/{{ weather.icon }}@2x.png"
+                    alt="Current Weather"
+                >
+
+                <div>
+
+                    <h1>
+                        {{ weather.temperature }}°C
+                    </h1>
+
+                    <p>
+                        Aisa mehsoos ho raha hai:
+                        {{ weather.feels_like }}°C
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 WEATHER DETAILS
+            ================================================== -->
+
+            <div class="weather-grid">
+
+
+                <div class="weather-box">
+
+                    <span>💧</span>
+
+                    <h3>
+                        Nami
+                    </h3>
+
+                    <p>
+                        {{ weather.humidity }}%
+                    </p>
+
+                    <small>
+                        Hawa me kitni nami hai
+                    </small>
+
+                </div>
+
+
+                <div class="weather-box">
+
+                    <span>💨</span>
+
+                    <h3>
+                        Hawa
+                    </h3>
+
+                    <p>
+                        {{ weather.wind_speed }} m/s
+                    </p>
+
+                    <small>
+                        Hawa ki speed
+                    </small>
+
+                </div>
+
+
+                <div class="weather-box">
+
+                    <span>🌡️</span>
+
+                    <h3>
+                        Hawa ka Dabav
+                    </h3>
+
+                    <p>
+                        {{ weather.pressure }} hPa
+                    </p>
+
+                    <small>
+                        Weather pressure
+                    </small>
+
+                </div>
+
+
+                <div class="weather-box">
+
+                    <span>🌧️</span>
+
+                    <h3>
+                        Mausam
+                    </h3>
+
+                    <p>
+                        {{ weather.description|title }}
+                    </p>
+
+                    <small>
+                        Aaj ki condition
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RAIN INFORMATION
+            ================================================== -->
+
+            <div class="farming-section">
+
+                <h2>
+                    🌧️ Barish ki Jankari
+                </h2>
+
+                <p>
+                    Pichhle 1 ghante me barish:
+                    <strong>
+                        {{ weather.rainfall }} mm
+                    </strong>
+                </p>
+
+
+                {% if weather.rainfall > 0 %}
+
+                    <div class="advice-box">
+
+                        🌧️
+
+                        <strong>
+                            Barish ho rahi hai:
+                        </strong>
+
+                        Abhi extra irrigation na karein aur
+                        khet me paani jama hone se bachayein.
+
+                    </div>
+
+                {% else %}
+
+                    <div class="advice-box">
+
+                        ☀️
+
+                        <strong>
+                            Abhi barish nahi:
+                        </strong>
+
+                        Fasal ki zarurat ke hisab se irrigation karein.
+
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- =================================================
+                 FARMING ADVICE
+            ================================================== -->
+
+            <div class="farming-section">
+
+                <h2>
+                    🌱 Kheti ke Liye Salah
+                </h2>
+
+
+                {% if weather.humidity >= 80 %}
+
+                    <div class="advice-box">
+
+                        💧
+
+                        <strong>
+                            Zyada Nami:
+                        </strong>
+
+                        Hawa me nami zyada hai.
+                        Fasal me fungus ya disease ka risk badh sakta hai.
+                        Fasal ko regularly check karein.
+
+                    </div>
+
+                {% else %}
+
+                    <div class="advice-box">
+
+                        🌱
+
+                        <strong>
+                            Normal Nami:
+                        </strong>
+
+                        Fasal ki regular care karein aur
+                        zarurat ke hisab se irrigation karein.
+
+                    </div>
+
+                {% endif %}
+
+
+                {% if weather.temperature >= 35 %}
+
+                    <div class="advice-box">
+
+                        ☀️
+
+                        <strong>
+                            Zyada Garmi:
+                        </strong>
+
+                        Fasal ko paani ki zarurat ho sakti hai.
+                        Dopahar ki tez garmi me irrigation se bachein.
+
+                    </div>
+
+
+                {% elif weather.temperature <= 10 %}
+
+                    <div class="advice-box">
+
+                        ❄️
+
+                        <strong>
+                            Thand:
+                        </strong>
+
+                        Fasal ko bahut kam temperature se bachane ke
+                        liye zaruri precautions lein.
+
+                    </div>
+
+
+                {% else %}
+
+                    <div class="advice-box">
+
+                        🌾
+
+                        <strong>
+                            Mausam Theek Hai:
+                        </strong>
+
+                        Fasal ki normal care aur monitoring jaari rakhein.
+
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- =================================================
+                 WEATHER ALERT
+            ================================================== -->
+
+            <div class="farming-section">
+
+                <h2>
+                    ⚠️ Weather Alert
+                </h2>
+
+
+                {% if weather.temperature >= 40 %}
+
+                    <div class="alert-box">
+
+                        🔥
+
+                        <strong>
+                            High Temperature Alert:
+                        </strong>
+
+                        Bahut zyada garmi hai.
+                        Fasal aur mitti ki moisture ko regularly check karein.
+
+                    </div>
+
+
+                {% elif weather.humidity >= 90 %}
+
+                    <div class="alert-box">
+
+                        🌧️
+
+                        <strong>
+                            High Humidity Alert:
+                        </strong>
+
+                        Bahut zyada nami hai.
+                        Fasal me fungal disease ke signs check karein.
+
+                    </div>
+
+
+                {% else %}
+
+                    <div class="alert-box">
+
+                        ✅
+
+                        <strong>
+                            No Major Alert:
+                        </strong>
+
+                        Abhi koi major weather warning nahi hai.
+
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- =================================================
+                 FARMER TIP
+            ================================================== -->
+
+            <div class="farmer-tip">
+
+                🌾
+
+                <strong>
+                    Farmer Tip:
+                </strong>
+
+                Weather ko regularly check karein aur
+                irrigation, fertilizer aur spraying ka decision
+                mausam ko dekhkar lein.
+
+            </div>
+
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+
+<script src="{% static 'js/weather.js' %}"></script>
+
+{% endblock %}

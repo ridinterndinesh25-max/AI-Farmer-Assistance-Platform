@@ -1,0 +1,400 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Irrigation History | AI Farmer{% endblock %}
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'css/irrigation.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="irrigation-history-page">
+
+<!-- HEADER -->
+
+<div class="history-header">
+
+    <div class="history-heading">
+
+        <div class="history-icon">
+            💧
+        </div>
+
+        <div>
+            <h1>Irrigation History</h1>
+            <p>
+                Apni crops ke irrigation schedules aur activities track karein.
+            </p>
+        </div>
+
+    </div>
+
+    <a
+        href="{% url 'add_irrigation' %}"
+        class="history-add-btn"
+    >
+        ➕ Add Irrigation
+    </a>
+
+</div>
+
+
+<!-- SUMMARY -->
+
+<div class="history-summary">
+
+    <div class="summary-card summary-blue">
+
+        <div class="summary-icon">
+            💧
+        </div>
+
+        <div>
+            <span class="summary-number">
+                {{ schedules|length }}
+            </span>
+
+            <span class="summary-label">
+                Total Irrigation
+            </span>
+        </div>
+
+    </div>
+
+
+    <div class="summary-card summary-green">
+
+        <div class="summary-icon">
+            ✅
+        </div>
+
+        <div>
+            <span class="summary-number">
+
+                {% for schedule in schedules %}
+                    {% if schedule.completed %}
+                        1
+                    {% endif %}
+                {% empty %}
+                    0
+                {% endfor %}
+
+            </span>
+
+            <span class="summary-label">
+                Completed
+            </span>
+        </div>
+
+    </div>
+
+
+    <div class="summary-card summary-orange">
+
+        <div class="summary-icon">
+            ⏳
+        </div>
+
+        <div>
+            <span class="summary-number">
+
+                {% for schedule in schedules %}
+                    {% if not schedule.completed %}
+                        1
+                    {% endif %}
+                {% empty %}
+                    0
+                {% endfor %}
+
+            </span>
+
+            <span class="summary-label">
+                Pending
+            </span>
+        </div>
+
+    </div>
+
+
+    <div class="summary-card summary-purple">
+
+        <div class="summary-icon">
+            🌱
+        </div>
+
+        <div>
+            <span class="summary-number">
+                {{ schedules|length }}
+            </span>
+
+            <span class="summary-label">
+                Saved Records
+            </span>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- HISTORY SECTION -->
+
+<div class="history-container">
+
+    <div class="history-section-heading">
+
+        <div>
+            <h2>📋 Saved Irrigation Activities</h2>
+            <p>
+                Aapke PostgreSQL database me saved records
+            </p>
+        </div>
+
+        <span class="database-badge">
+            🗄️ PostgreSQL
+        </span>
+
+    </div>
+
+
+    {% if schedules %}
+
+        <div class="history-grid">
+
+            {% for schedule in schedules %}
+
+                <div class="history-card
+                    {% if schedule.completed %}
+                        history-completed
+                    {% else %}
+                        history-pending
+                    {% endif %}">
+
+
+                    <!-- CARD TOP -->
+
+                    <div class="history-card-top">
+
+                        <div class="history-crop">
+
+                            <div class="crop-icon">
+                                🌱
+                            </div>
+
+                            <div>
+                                <span class="crop-label">
+                                    Crop
+                                </span>
+
+                                <h3>
+                                    {{ schedule.crop_name }}
+                                </h3>
+                            </div>
+
+                        </div>
+
+
+                        {% if schedule.completed %}
+
+                            <span class="history-status completed">
+                                ✓ Completed
+                            </span>
+
+                        {% else %}
+
+                            <span class="history-status pending">
+                                ⏳ Pending
+                            </span>
+
+                        {% endif %}
+
+                    </div>
+
+
+                    <!-- DETAILS -->
+
+                    <div class="history-details">
+
+                        <div class="detail-item">
+
+                            <span class="detail-icon">
+                                📅
+                            </span>
+
+                            <div>
+                                <small>Date</small>
+                                <strong>
+                                    {{ schedule.irrigation_date }}
+                                </strong>
+                            </div>
+
+                        </div>
+
+
+                        {% if schedule.irrigation_time %}
+
+                            <div class="detail-item">
+
+                                <span class="detail-icon">
+                                    ⏰
+                                </span>
+
+                                <div>
+                                    <small>Time</small>
+                                    <strong>
+                                        {{ schedule.irrigation_time }}
+                                    </strong>
+                                </div>
+
+                            </div>
+
+                        {% endif %}
+
+
+                        {% if schedule.field_name %}
+
+                            <div class="detail-item">
+
+                                <span class="detail-icon">
+                                    🚜
+                                </span>
+
+                                <div>
+                                    <small>Field</small>
+                                    <strong>
+                                        {{ schedule.field_name }}
+                                    </strong>
+                                </div>
+
+                            </div>
+
+                        {% endif %}
+
+
+                        <div class="detail-item">
+
+                            <span class="detail-icon">
+                                🌊
+                            </span>
+
+                            <div>
+                                <small>Water Source</small>
+                                <strong>
+                                    {{ schedule.get_water_source_display }}
+                                </strong>
+                            </div>
+
+                        </div>
+
+
+                        {% if schedule.water_amount %}
+
+                            <div class="detail-item water-detail">
+
+                                <span class="detail-icon">
+                                    💧
+                                </span>
+
+                                <div>
+                                    <small>Water Used</small>
+                                    <strong>
+                                        {{ schedule.water_amount }} Litres
+                                    </strong>
+                                </div>
+
+                            </div>
+
+                        {% endif %}
+
+                    </div>
+
+
+                    <!-- NOTES -->
+
+                    {% if schedule.notes %}
+
+                        <div class="history-notes">
+
+                            <span>
+                                📝
+                            </span>
+
+                            <p>
+                                {{ schedule.notes }}
+                            </p>
+
+                        </div>
+
+                    {% endif %}
+
+
+                    <!-- FOOTER -->
+
+                    <div class="history-card-footer">
+
+                        <span class="saved-time">
+                            🕒 Saved in History
+                        </span>
+
+
+                        {% if schedule.completed %}
+
+                            <span class="completed-label">
+                                ✓ Irrigation Done
+                            </span>
+
+                        {% else %}
+
+                            <a
+                                href="{% url 'complete_irrigation' schedule.id %}"
+                                class="history-complete-btn"
+                            >
+                                ✓ Mark Complete
+                            </a>
+
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+
+    {% else %}
+
+        <!-- EMPTY STATE -->
+
+        <div class="history-empty">
+
+            <div class="empty-icon">
+                💧
+            </div>
+
+            <h2>No Irrigation History</h2>
+
+            <p>
+                Abhi tak koi irrigation schedule save nahi hua hai.
+            </p>
+
+            <a
+                href="{% url 'add_irrigation' %}"
+                class="history-add-btn"
+            >
+                ➕ Add Your First Irrigation
+            </a>
+
+        </div>
+
+    {% endif %}
+
+</div>
+
+
+</div>
+
+{% endblock %}

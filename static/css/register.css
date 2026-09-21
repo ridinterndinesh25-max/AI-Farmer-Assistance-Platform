@@ -1,0 +1,560 @@
+
+/* =========================================================
+   🌾 AI FARMER - PREMIUM REGISTER PAGE
+   ========================================================= */
+
+.auth-container {
+    min-height: calc(100vh - 135px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px 20px;
+
+    box-sizing: border-box;
+
+    background:
+        radial-gradient(
+            circle at 10% 15%,
+            rgba(34, 197, 94, .18),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(6, 182, 212, .18),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 50% 90%,
+            rgba(234, 179, 8, .15),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #f0fdf4,
+            #ecfeff,
+            #fefce8
+        );
+
+    position: relative;
+}
+
+
+/* =========================================================
+   REGISTER CARD
+   ========================================================= */
+
+.auth-card {
+    width: 100%;
+    max-width: 500px;
+
+    padding: 38px 40px;
+
+    box-sizing: border-box;
+
+    border-radius: 25px;
+
+    background: rgba(255, 255, 255, .86);
+
+    border: 1px solid rgba(255, 255, 255, .95);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 25px 65px rgba(15, 23, 42, .15),
+        0 8px 25px rgba(22, 163, 74, .10),
+        inset 0 1px 3px rgba(255, 255, 255, .95);
+
+    position: relative;
+
+    overflow: hidden;
+
+    animation: registerCard .6s ease;
+}
+
+
+/* Top colorful line */
+
+.auth-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 6px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #166534,
+            #16a34a,
+            #84cc16,
+            #eab308,
+            #f97316,
+            #0891b2,
+            #2563eb
+        );
+}
+
+
+/* Decorative glow */
+
+.auth-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 190px;
+    height: 190px;
+
+    right: -100px;
+    top: -100px;
+
+    border-radius: 50%;
+
+    background: rgba(34, 197, 94, .13);
+
+    filter: blur(28px);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.auth-card h1 {
+    margin: 5px 0 8px;
+
+    text-align: center;
+
+    font-size: 30px;
+    font-weight: 800;
+
+    background:
+        linear-gradient(
+            90deg,
+            #166534,
+            #16a34a,
+            #0891b2,
+            #2563eb
+        );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    background-clip: text;
+}
+
+
+/* =========================================================
+   SUBTITLE
+   ========================================================= */
+
+.auth-subtitle {
+    margin: 0 0 28px;
+
+    text-align: center;
+
+    color: #64748b;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   FORM GROUP
+   ========================================================= */
+
+.form-group {
+    margin-bottom: 17px;
+
+    position: relative;
+}
+
+
+/* =========================================================
+   LABEL
+   ========================================================= */
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #166534;
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   DJANGO FORM INPUTS
+   ========================================================= */
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #d1fae5;
+
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, .90);
+
+    color: #1e293b;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        border-color .25s ease,
+        box-shadow .25s ease,
+        transform .25s ease,
+        background .25s ease;
+
+    box-shadow:
+        inset 0 2px 5px rgba(15, 23, 42, .04),
+        0 3px 10px rgba(15, 23, 42, .04);
+}
+
+
+/* Placeholder */
+
+.form-group input::placeholder {
+    color: #94a3b8;
+}
+
+
+/* Focus */
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #22c55e;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 4px rgba(34, 197, 94, .12),
+        0 7px 18px rgba(34, 197, 94, .12);
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   DJANGO FIELD ERRORS
+   ========================================================= */
+
+.form-group ul.errorlist {
+    margin: 6px 0 0;
+
+    padding: 0;
+
+    list-style: none;
+}
+
+.form-group ul.errorlist li {
+    color: #dc2626;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    background: rgba(254, 226, 226, .75);
+
+    border-left: 3px solid #ef4444;
+
+    border-radius: 6px;
+
+    padding: 6px 9px;
+
+    margin-top: 5px;
+}
+
+
+/* =========================================================
+   NON-FIELD ERROR
+   ========================================================= */
+
+.error-message {
+    margin-bottom: 20px;
+
+    padding: 12px 15px;
+
+    border-radius: 11px;
+
+    color: #991b1b;
+
+    background: rgba(254, 226, 226, .85);
+
+    border: 1px solid #fecaca;
+
+    font-size: 13px;
+
+    box-shadow:
+        0 5px 15px rgba(239, 68, 68, .08);
+}
+
+
+/* =========================================================
+   DJANGO SUCCESS / MESSAGE
+   ========================================================= */
+
+.message {
+    margin-bottom: 20px;
+
+    padding: 11px 14px;
+
+    border-radius: 11px;
+
+    background: rgba(254, 243, 199, .88);
+
+    border: 1px solid #fde68a;
+
+    color: #92400e;
+
+    font-size: 13px;
+
+    text-align: center;
+
+    box-shadow:
+        0 5px 15px rgba(234, 179, 8, .08);
+}
+
+
+/* =========================================================
+   REGISTER BUTTON
+   ========================================================= */
+
+.auth-button {
+    width: 100%;
+
+    margin-top: 10px;
+
+    padding: 14px 20px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    cursor: pointer;
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    letter-spacing: .2px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #166534,
+            #16a34a,
+            #0891b2,
+            #2563eb
+        );
+
+    box-shadow:
+        0 9px 22px rgba(22, 163, 74, .25),
+        0 5px 14px rgba(37, 99, 235, .14);
+
+    transition: all .3s ease;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* Button shine */
+
+.auth-button::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 60%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, .35),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    transition: .6s ease;
+}
+
+
+.auth-button:hover::before {
+    left: 130%;
+}
+
+
+/* Button hover */
+
+.auth-button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 14px 30px rgba(22, 163, 74, .30),
+        0 8px 20px rgba(37, 99, 235, .20);
+}
+
+
+/* Button click */
+
+.auth-button:active {
+    transform: translateY(0);
+
+    box-shadow:
+        0 5px 12px rgba(22, 163, 74, .20);
+}
+
+
+/* =========================================================
+   FOOTER LOGIN LINK
+   ========================================================= */
+
+.auth-footer {
+    margin: 22px 0 0;
+
+    text-align: center;
+
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+
+.auth-footer a {
+    color: #0891b2;
+
+    font-weight: 800;
+
+    text-decoration: none;
+
+    transition: all .25s ease;
+}
+
+
+.auth-footer a:hover {
+    color: #16a34a;
+
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   CARD ANIMATION
+   ========================================================= */
+
+@keyframes registerCard {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(.97);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .auth-container {
+        min-height: calc(100vh - 120px);
+
+        padding: 25px 14px;
+    }
+
+    .auth-card {
+        padding: 30px 22px;
+
+        border-radius: 20px;
+    }
+
+    .auth-card h1 {
+        font-size: 25px;
+    }
+
+    .auth-subtitle {
+        font-size: 13px;
+
+        margin-bottom: 23px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 11px 12px;
+    }
+
+    .auth-button {
+        padding: 13px 16px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+    .auth-card {
+        padding: 27px 17px;
+    }
+
+    .auth-card h1 {
+        font-size: 22px;
+    }
+
+}
+

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Crop | AI Farmer{% endblock %}
+
+{% block content %}
+
+<div class="form-page">
+
+    <div class="form-card">
+
+        <div class="form-header">
+
+            <div class="form-icon">✏️</div>
+
+            <h1>Edit Crop</h1>
+
+            <p>
+                Update your crop and farming information.
+            </p>
+
+        </div>
+
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <div class="crop-form-fields">
+                {{ form.as_p }}
+            </div>
+
+            <button type="submit" class="auth-button">
+                💾 Save Changes
+            </button>
+
+        </form>
+
+
+        <div class="form-footer">
+
+            <a href="{% url 'crop_list' %}">
+                ← Back to My Crops
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

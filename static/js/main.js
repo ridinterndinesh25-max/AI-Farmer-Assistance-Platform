@@ -1,0 +1,1 @@
+console.log("AI Farmer Assistance Platform loaded successfully.");

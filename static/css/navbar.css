@@ -1,0 +1,1155 @@
+
+/* =========================================================
+   🌾 AI FARMER - PREMIUM FARMING NAVBAR
+   ========================================================= */
+
+.navbar {
+    height: 70px;
+    width: 100%;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 12px 30px;
+    box-sizing: border-box;
+
+    /* 🌱 FARMING COLORS */
+    background:
+        linear-gradient(
+            110deg,
+            #14532d 0%,
+            #15803d 20%,
+            #16a34a 40%,
+            #0d9488 58%,
+            #0284c7 78%,
+            #2563eb 100%
+        );
+
+    color: #ffffff;
+
+    border-bottom:
+        2px solid rgba(255,255,255,.25);
+
+    box-shadow:
+        0 5px 25px rgba(22,101,52,.30),
+        0 3px 12px rgba(14,116,144,.18);
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   🌿 NATURAL GLOW EFFECTS
+   ========================================================= */
+
+.navbar::before {
+    content: "";
+
+    position: absolute;
+
+    width: 260px;
+    height: 260px;
+
+    left: 12%;
+    top: -200px;
+
+    background:
+        rgba(134,239,172,.28);
+
+    border-radius: 50%;
+
+    filter: blur(40px);
+
+    pointer-events: none;
+}
+
+
+.navbar::after {
+    content: "";
+
+    position: absolute;
+
+    width: 240px;
+    height: 240px;
+
+    right: 10%;
+    top: -190px;
+
+    background:
+        rgba(125,211,252,.25);
+
+    border-radius: 50%;
+
+    filter: blur(40px);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   🌾 CONTENT ABOVE EFFECTS
+   ========================================================= */
+
+.navbar > * {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* =========================================================
+   🌾 FARMER LOGO
+   ========================================================= */
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    color: #ffffff;
+
+    font-size: 21px;
+
+    font-weight: 800;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    text-shadow:
+        0 2px 8px rgba(0,0,0,.25);
+
+    transition: all .3s ease;
+}
+
+
+.navbar-brand:hover {
+    color: #fef08a;
+
+    transform:
+        translateY(-2px)
+        scale(1.02);
+
+    text-shadow:
+        0 4px 18px rgba(254,240,138,.40);
+}
+
+
+/* =========================================================
+   🌱 NAVIGATION
+   ========================================================= */
+
+.navbar-links {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+/* =========================================================
+   🍃 FARMING GLASS LINKS
+   ========================================================= */
+
+.navbar-links a {
+
+    position: relative;
+
+    color: #ffffff;
+
+    font-weight: 650;
+
+    text-decoration: none;
+
+    padding: 9px 14px;
+
+    border-radius: 12px;
+
+    border:
+        1px solid rgba(255,255,255,.18);
+
+    background:
+        rgba(255,255,255,.09);
+
+    backdrop-filter:
+        blur(12px);
+
+    box-shadow:
+        inset 0 1px 3px rgba(255,255,255,.18);
+
+    transition:
+        all .28s ease;
+}
+
+
+/* =========================================================
+   🌿 HOVER
+   ========================================================= */
+
+.navbar-links a:hover {
+
+    color: #ffffff;
+
+    transform:
+        translateY(-3px);
+
+    border-color:
+        rgba(255,255,255,.45);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.25),
+            rgba(255,255,255,.10)
+        );
+
+    box-shadow:
+        0 8px 20px rgba(0,70,40,.20),
+        inset 0 1px 4px rgba(255,255,255,.35);
+}
+
+
+/* =========================================================
+   🌱 FARMING COLOR HOVER
+   ========================================================= */
+
+/* Dashboard - Leaf Green */
+.navbar-links a:nth-child(1):hover {
+    background:
+        linear-gradient(
+            135deg,
+            #15803d,
+            #22c55e
+        );
+
+    box-shadow:
+        0 8px 20px rgba(34,197,94,.30);
+}
+
+
+/* Crops - Fresh Green */
+.navbar-links a:nth-child(2):hover {
+    background:
+        linear-gradient(
+            135deg,
+            #166534,
+            #65a30d
+        );
+
+    box-shadow:
+        0 8px 20px rgba(101,163,13,.30);
+}
+
+
+/* Weather - Sky Blue */
+.navbar-links a:nth-child(3):hover {
+    background:
+        linear-gradient(
+            135deg,
+            #0284c7,
+            #38bdf8
+        );
+
+    box-shadow:
+        0 8px 20px rgba(56,189,248,.30);
+}
+
+
+/* Market - Golden */
+.navbar-links a:nth-child(4):hover {
+    background:
+        linear-gradient(
+            135deg,
+            #d97706,
+            #fbbf24
+        );
+
+    box-shadow:
+        0 8px 20px rgba(251,191,36,.30);
+}
+
+
+/* AI - Teal */
+.navbar-links a:nth-child(5):hover {
+    background:
+        linear-gradient(
+            135deg,
+            #0f766e,
+            #14b8a6
+        );
+
+    box-shadow:
+        0 8px 20px rgba(20,184,166,.30);
+}
+
+
+/* =========================================================
+   👨‍🌾 USERNAME
+   ========================================================= */
+
+.navbar-user {
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    padding: 7px 13px;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,)
+            rgba(255,255,255,.18),
+            rgba(2)
+}
+/* =========================================================
+   🌌 AI FARMER - LIVE DARK FUTURISTIC NAVBAR
+   ========================================================= */
+
+.navbar {
+    background:
+        linear-gradient(
+            110deg,
+            #050816 0%,
+            #0b1025 25%,
+            #111827 48%,
+            #071b22 70%,
+            #07101d 100%
+        ) !important;
+
+    border-bottom:
+        1px solid rgba(120, 90, 255, 0.45) !important;
+
+    box-shadow:
+        0 5px 30px rgba(0, 0, 0, 0.65),
+        0 0 25px rgba(90, 70, 255, 0.12),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.06);
+}
+
+
+/* =========================================================
+   ✨ LIVE LIGHTING
+   ========================================================= */
+
+.navbar::before {
+    width: 380px;
+    height: 380px;
+
+    left: 8%;
+    top: -300px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(139, 92, 246, 0.38),
+            transparent 65%
+        );
+
+    filter: blur(25px);
+
+    animation: navbarPurpleGlow 6s ease-in-out infinite alternate;
+}
+
+
+.navbar::after {
+    width: 350px;
+    height: 350px;
+
+    right: 12%;
+    top: -280px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(14, 165, 233, 0.32),
+            transparent 65%
+        );
+
+    filter: blur(28px);
+
+    animation: navbarBlueGlow 7s ease-in-out infinite alternate;
+}
+
+
+@keyframes navbarPurpleGlow {
+
+    0% {
+        transform: translateX(-20px);
+        opacity: 0.55;
+    }
+
+    100% {
+        transform: translateX(90px);
+        opacity: 1;
+    }
+
+}
+
+
+@keyframes navbarBlueGlow {
+
+    0% {
+        transform: translateX(30px);
+        opacity: 0.45;
+    }
+
+    100% {
+        transform: translateX(-80px);
+        opacity: 1;
+    }
+
+}
+
+
+/* =========================================================
+   🌾 BRAND
+   ========================================================= */
+
+.navbar-brand {
+    color: #ffffff !important;
+
+    text-shadow:
+        0 0 12px rgba(139, 92, 246, 0.35),
+        0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+
+.navbar-brand:hover {
+    color: #c4b5fd !important;
+
+    text-shadow:
+        0 0 18px rgba(139, 92, 246, 0.8);
+}
+
+
+/* =========================================================
+   💎 GLASS NAV LINKS
+   ========================================================= */
+
+.navbar-links a {
+
+    background:
+        rgba(255, 255, 255, 0.055) !important;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.12) !important;
+
+    color:
+        rgba(255, 255, 255, 0.88) !important;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 5px 15px rgba(0, 0, 0, 0.18);
+
+    transition:
+        all 0.3s ease;
+}
+
+
+/* =========================================================
+   🌈 LIVE HOVER LIGHTING
+   ========================================================= */
+
+.navbar-links a:hover {
+
+    color: #ffffff !important;
+
+    transform:
+        translateY(-2px);
+
+    border-color:
+        rgba(255, 255, 255, 0.4) !important;
+
+    background:
+        rgba(255, 255, 255, 0.12) !important;
+
+    box-shadow:
+        0 0 20px rgba(139, 92, 246, 0.25),
+        inset 0 1px 5px rgba(255, 255, 255, 0.12);
+}
+
+
+/* =========================================================
+   🟣 DASHBOARD
+   ========================================================= */
+
+.navbar-links a:nth-child(1):hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(124, 58, 237, 0.75),
+            rgba(168, 85, 247, 0.45)
+        ) !important;
+
+    box-shadow:
+        0 0 22px rgba(139, 92, 246, 0.55);
+}
+
+
+/* =========================================================
+   🟢 CROPS
+   ========================================================= */
+
+.navbar-links a:nth-child(2):hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(22, 163, 74, 0.75),
+            rgba(34, 197, 94, 0.42)
+        ) !important;
+
+    box-shadow:
+        0 0 22px rgba(34, 197, 94, 0.50);
+}
+
+
+/* =========================================================
+   🔵 WEATHER
+   ========================================================= */
+
+.navbar-links a:nth-child(3):hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(2, 132, 199, 0.78),
+            rgba(56, 189, 248, 0.42)
+        ) !important;
+
+    box-shadow:
+        0 0 22px rgba(56, 189, 248, 0.55);
+}
+
+
+/* =========================================================
+   🟡 MARKET
+   ========================================================= */
+
+.navbar-links a:nth-child(4):hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(217, 119, 6, 0.80),
+            rgba(251, 191, 36, 0.45)
+        ) !important;
+
+    box-shadow:
+        0 0 22px rgba(251, 191, 36, 0.50);
+}
+
+
+/* =========================================================
+   🩷 AI ASSISTANT
+   ========================================================= */
+
+.navbar-links a:nth-child(5):hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(219, 39, 119, 0.78),
+            rgba(168, 85, 247, 0.48)
+        ) !important;
+
+    box-shadow:
+        0 0 24px rgba(236, 72, 153, 0.50);
+}
+
+
+/* =========================================================
+   👨‍🌾 USER
+   ========================================================= */
+
+.navbar-user {
+
+    color: #e5e7eb !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.10),
+            rgba(139, 92, 246, 0.12)
+        ) !important;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.14);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 0 15px rgba(139, 92, 246, 0.10);
+}
+
+
+
+/* =========================================================
+   🌾 AI FARMER — PREMIUM COLORFUL AGRITECH NAVBAR
+   Green + Blue + Orange + Purple + Pink
+   ========================================================= */
+
+.navbar {
+    position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            100deg,
+            #123d27 0%,
+            #17633a 25%,
+            #145f66 50%,
+            #254b7a 73%,
+            #4b286b 100%
+        ) !important;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.18) !important;
+
+    box-shadow:
+        0 6px 25px rgba(0, 0, 0, 0.20),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.08);
+
+    z-index: 1000;
+}
+
+
+/* =========================================================
+   ✨ LIVE COLOR LIGHT
+   ========================================================= */
+
+.navbar::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    top: -300px;
+    left: 12%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(74, 222, 128, 0.35),
+            transparent 68%
+        );
+
+    filter: blur(20px);
+
+    pointer-events: none;
+
+    animation:
+        navGreenLight 7s ease-in-out infinite alternate;
+}
+
+
+.navbar::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    top: -320px;
+    right: 10%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(56, 189, 248, 0.30),
+            rgba(168, 85, 247, 0.16),
+            transparent 68%
+        );
+
+    filter: blur(25px);
+
+    pointer-events: none;
+
+    animation:
+        navColorLight 8s ease-in-out infinite alternate;
+}
+
+
+@keyframes navGreenLight {
+
+    0% {
+        transform: translateX(-30px);
+        opacity: 0.45;
+    }
+
+    100% {
+        transform: translateX(100px);
+        opacity: 0.95;
+    }
+}
+
+
+@keyframes navColorLight {
+
+    0% {
+        transform: translateX(50px);
+        opacity: 0.45;
+    }
+
+    100% {
+        transform: translateX(-90px);
+        opacity: 0.95;
+    }
+}
+
+
+/* =========================================================
+   🌾 BRAND
+   ========================================================= */
+
+.navbar-brand {
+
+    position: relative;
+    z-index: 2;
+
+    color: #ffffff !important;
+
+    font-weight: 900 !important;
+
+    letter-spacing: 0.3px;
+
+    text-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.25);
+
+    transition:
+        all 0.3s ease;
+}
+
+
+.navbar-brand:hover {
+
+    color: #bbf7d0 !important;
+
+    transform:
+        translateY(-1px);
+
+    text-shadow:
+        0 0 15px rgba(74, 222, 128, 0.45);
+}
+
+
+/* =========================================================
+   🧭 NAVIGATION LINKS
+   ========================================================= */
+
+.navbar-links {
+
+    position: relative;
+    z-index: 2;
+}
+
+
+.navbar-links a {
+
+    position: relative;
+
+    color:
+        rgba(255, 255, 255, 0.92) !important;
+
+    background:
+        rgba(255, 255, 255, 0.10) !important;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.15) !important;
+
+    border-radius:
+        11px !important;
+
+    padding:
+        8px 13px !important;
+
+    backdrop-filter:
+        blur(8px);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.10);
+
+    transition:
+        all 0.28s ease;
+}
+
+
+/* =========================================================
+   🏠 DASHBOARD — GREEN
+   ========================================================= */
+
+.navbar-links a:nth-child(1):hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(34, 197, 94, 0.85),
+            rgba(74, 222, 128, 0.55)
+        ) !important;
+
+    border-color:
+        rgba(134, 239, 172, 0.70) !important;
+
+    box-shadow:
+        0 0 20px rgba(34, 197, 94, 0.40);
+}
+
+
+/* =========================================================
+   🌱 CROPS — LIME
+   ========================================================= */
+
+.navbar-links a:nth-child(2):hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(101, 163, 13, 0.88),
+            rgba(163, 230, 53, 0.58)
+        ) !important;
+
+    border-color:
+        rgba(190, 242, 100, 0.70) !important;
+
+    box-shadow:
+        0 0 20px rgba(163, 230, 53, 0.38);
+}
+
+
+/* =========================================================
+   ☁ WEATHER — SKY BLUE
+   ========================================================= */
+
+.navbar-links a:nth-child(3):hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(2, 132, 199, 0.88),
+            rgba(56, 189, 248, 0.58)
+        ) !important;
+
+    border-color:
+        rgba(125, 211, 252, 0.70) !important;
+
+    box-shadow:
+        0 0 20px rgba(56, 189, 248, 0.40);
+}
+
+
+/* =========================================================
+   💰 MARKET — GOLD / ORANGE
+   ========================================================= */
+
+.navbar-links a:nth-child(4):hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(217, 119, 6, 0.90),
+            rgba(251, 191, 36, 0.60)
+        ) !important;
+
+    border-color:
+        rgba(253, 224, 71, 0.70) !important;
+
+    box-shadow:
+        0 0 20px rgba(251, 191, 36, 0.40);
+}
+
+
+/* =========================================================
+   🤖 AI — PURPLE / PINK
+   ========================================================= */
+
+.navbar-links a:nth-child(5):hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(126, 34, 206, 0.88),
+            rgba(236, 72, 153, 0.60)
+        ) !important;
+
+    border-color:
+        rgba(216, 180, 254, 0.70) !important;
+
+    box-shadow:
+        0 0 22px rgba(192, 132, 252, 0.40);
+}
+
+
+/* =========================================================
+   ✨ COMMON HOVER
+   ========================================================= */
+
+.navbar-links a:hover {
+
+    color:
+        #ffffff !important;
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================================================
+   👤 USER PROFILE
+   ========================================================= */
+
+.navbar-user {
+
+    position: relative;
+    z-index: 2;
+
+    color:
+        #ffffff !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.15),
+            rgba(74, 222, 128, 0.16),
+            rgba(56, 189, 248, 0.12)
+        ) !important;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.20) !important;
+
+    border-radius:
+        12px !important;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.12),
+        0 5px 18px rgba(0, 0, 0, 0.15);
+
+    transition:
+        all 0.3s ease;
+}
+
+
+.navbar-user:hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(34, 197, 94, 0.30),
+            rgba(56, 189, 248, 0.24),
+            rgba(168, 85, 247, 0.20)
+        ) !important;
+
+    border-color:
+        rgba(255, 255, 255, 0.35) !important;
+
+    box-shadow:
+        0 0 22px rgba(74, 222, 128, 0.22);
+}
+
+
+/* =========================================================
+   📱 MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .navbar {
+
+        background:
+            linear-gradient(
+                100deg,
+                #123d27,
+                #145f66,
+                #254b7a
+            ) !important;
+    }
+
+    .navbar-links a {
+
+        border-radius:
+            9px !important;
+    }
+}
+
+
+/* =========================================================
+   🔴 SOFT RED ACCENT
+   ========================================================= */
+
+/* AI / special accent */
+.navbar-links a:nth-child(5):hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(190, 45, 65, 0.78),
+            rgba(236, 72, 153, 0.48),
+            rgba(126, 34, 206, 0.38)
+        ) !important;
+
+    border-color:
+        rgba(252, 165, 165, 0.65) !important;
+
+    box-shadow:
+        0 0 20px rgba(239, 68, 68, 0.28),
+        0 0 32px rgba(236, 72, 153, 0.14);
+}
+
+
+/* User profile — very soft red mixed with green */
+.navbar-user {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(34, 197, 94, 0.16),
+            rgba(248, 113, 113, 0.13),
+            rgba(56, 189, 248, 0.12)
+        ) !important;
+}
+
+
+.navbar-user:hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(34, 197, 94, 0.25),
+            rgba(248, 113, 113, 0.22),
+            rgba(168, 85, 247, 0.18)
+        ) !important;
+
+    border-color:
+        rgba(252, 165, 165, 0.40) !important;
+
+    box-shadow:
+        0 0 22px rgba(248, 113, 113, 0.20),
+        0 0 30px rgba(74, 222, 128, 0.12);
+}
+
+
+/* Small red live light in navbar */
+
+.navbar::after {
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(56, 189, 248, 0.25),
+            rgba(248, 113, 113, 0.14),
+            rgba(168, 85, 247, 0.10),
+            transparent 68%
+        ) !important;
+}
+
+/* =========================================================
+   📌 AI FARMER — FIXED NAVBAR
+   ========================================================= */
+
+.navbar {
+    position: fixed !important;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    width: 100%;
+    height: 70px;
+
+    z-index: 9999;
+
+    box-sizing: border-box;
+
+    /* keep navbar visible while scrolling */
+    transform: translateZ(0);
+
+    /* smooth glass effect */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+
+/* =========================================================
+   MAIN CONTENT — NAVBAR SPACE
+   ========================================================= */
+
+.main-content {
+    margin-top: 70px !important;
+}
+
+
+/* =========================================================
+   SIDEBAR — BELOW NAVBAR
+   ========================================================= */
+
+.sidebar {
+    position: fixed !important;
+
+    top: 70px !important;
+    left: 0;
+
+    height: calc(100vh - 70px) !important;
+
+    z-index: 9998;
+
+    overflow-y: auto;
+}
+
+
+/* =========================================================
+   DASHBOARD VIDEO — BELOW NAVBAR
+   ========================================================= */
+
+.dashboard-video,
+.dashboard-video-overlay {
+
+    top: 70px !important;
+
+    height: calc(100vh - 70px) !important;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        height: 64px;
+    }
+
+    .main-content {
+        margin-top: 64px !important;
+    }
+
+    .sidebar {
+        top: 64px !important;
+        height: calc(100vh - 64px) !important;
+    }
+
+    .dashboard-video,
+    .dashboard-video-overlay {
+        top: 64px !important;
+        height: calc(100vh - 64px) !important;
+    }
+}
+

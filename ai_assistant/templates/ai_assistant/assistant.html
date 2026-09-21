@@ -1,0 +1,98 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+AI Assistant | AI Farmer
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/ai_assistant.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="ai-assistant-page">
+
+    <!-- Header -->
+    <div class="ai-assistant-header">
+
+        <div class="ai-icon">
+            🤖
+        </div>
+
+        <div>
+            <h1>AI Farmer Assistant</h1>
+
+            <p>
+                Ask anything about crops, diseases, weather,
+                market prices, farming and more.
+            </p>
+        </div>
+
+    </div>
+
+
+    <!-- Chat Box -->
+    <div class="ai-chat-box" id="ai-chat-box">
+
+        <!-- Welcome Message -->
+        <div class="ai-message">
+
+            <div class="ai-avatar">
+                🤖
+            </div>
+
+            <div class="ai-message-content">
+
+                <strong>AI Farmer Assistant</strong>
+
+                <p>
+                    Namaste! 👋 Main aapki farming problems solve
+                    karne mein help karunga.
+                </p>
+
+                <p>
+                    Aap crop, disease, weather, market price,
+                    fertilizer, irrigation ya farming se related
+                    koi bhi question pooch sakte hain.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Input Area -->
+    <form id="ai-form" class="ai-input-area">
+
+        {% csrf_token %}
+
+        <input
+            type="text"
+            id="ai-question"
+            name="question"
+            placeholder="Ask your farming question..."
+            autocomplete="off"
+        >
+
+        <button
+            type="submit"
+            id="ai-send-btn"
+        >
+            Send
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}
+
+
+{% block extra_js %}
+<script src="{% static 'js/ai_assistant.js' %}"></script>
+{% endblock %}
+

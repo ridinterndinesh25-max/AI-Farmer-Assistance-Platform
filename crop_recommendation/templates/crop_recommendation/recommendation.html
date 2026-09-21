@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Crop Recommendation | AI Farmer{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/crop_recommendation.css' %}">
+
+<div class="form-page">
+
+    <div class="form-card">
+
+        <div class="form-header">
+
+            <div class="form-icon">🌱🤖</div>
+
+            <h1>Crop Recommendation</h1>
+
+            <p>
+                Enter your soil and weather details to get
+                the most suitable crop recommendation.
+            </p>
+
+            <form method="POST">
+                {% csrf_token %}
+
+                <div class="crop-form-fields">
+
+                    <label for="nitrogen">🧪 Nitrogen (N)</label>
+                    <input
+                        type="number"
+                        step="any"
+                        id="nitrogen"
+                        name="nitrogen"
+                        placeholder="Enter Nitrogen value"
+                        required
+                    >
+
+                    <label for="phosphorus">🧪 Phosphorus (P)</label>
+                    <input
+                        type="number"
+                        step="any"
+                        id="phosphorus"
+                        name="phosphorus"
+                        placeholder="Enter Phosphorus value"
+                        required
+                    >
+
+                    <label for="potassium">🧪 Potassium (K)</label>
+                    <input
+                        type="number"
+                        step="any"
+                        id="potassium"
+                        name="potassium"
+                        placeholder="Enter Potassium value"
+                        required
+                    >
+
+                    <label for="ph">⚗️ Soil pH</label>
+                    <input
+                        type="number"
+                        step="any"
+                        id="ph"
+                        name="ph"
+                        placeholder="Example: 6.5"
+                        required
+                    >
+
+                    <label for="temperature">🌡️ Temperature (°C)</label>
+                    <input
+                        type="number"
+                        step="any"
+                        id="temperature"
+                        name="temperature"
+                        placeholder="Enter temperature"
+                        required
+                    >
+
+                    <label for="humidity">💧 Humidity (%)</label>
+                    <input
+                        type="number"
+                        step="any"
+                        id="humidity"
+                        name="humidity"
+                        placeholder="Enter humidity"
+                        required
+                    >
+
+                    <label for="rainfall">🌧️ Rainfall (mm)</label>
+                    <input
+                        type="number"
+                        step="any"
+                        id="rainfall"
+                        name="rainfall"
+                        placeholder="Enter rainfall"
+                        required
+                    >
+
+                </div>
+
+                <button type="submit" class="auth-button">
+                    🤖 Recommend Crop
+                </button>
+
+            </form>
+
+            {% if recommendation %}
+
+            <div class="recommendation-result">
+
+                <h2>🌱 Recommended Crop</h2>
+
+                <div class="crop-result-box">
+
+                    <h3>{{ recommendation|title }}</h3>
+
+                    <p>
+                        Based on the soil and weather conditions,
+                        this crop is recommended for your field.
+                    </p>
+
+                </div>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
+

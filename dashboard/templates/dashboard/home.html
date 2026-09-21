@@ -1,0 +1,197 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Dashboard | AI Farmer{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-page">
+
+    <!-- ================= LIVE FARM VIDEO ================= -->
+
+    <video class="dashboard-video" autoplay muted loop playsinline>
+        <source src="{% static 'videos/farm-background.mp4' %}" type="video/mp4">
+    </video>
+
+    <div class="dashboard-video-overlay"></div>
+
+
+    <!-- ================= DASHBOARD CONTENT ================= -->
+
+    <div class="dashboard-content">
+
+        <!-- HERO / HEADER -->
+        <section class="dashboard-header">
+
+            <div class="hero-content">
+
+                <span class="hero-badge">
+                    ✦ AI POWERED AGRICULTURE
+                </span>
+
+                <h1>
+                    BUILD
+                    <span>SMART FARMING</span>
+                    VISUALLY
+                </h1>
+
+                <p class="hero-subtitle">
+                    Smart technology for smarter farming,
+                    better decisions and healthier harvests.
+                </p>
+
+                <p class="hero-welcome">
+                    Welcome,
+                    <strong>
+                        {{ request.user.first_name|default:request.user.username }}
+                    </strong>
+                    👋
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FEATURE CARDS ================= -->
+
+        <div class="dashboard-cards">
+
+            <!-- MY CROPS -->
+            <div class="card">
+
+                <div class="card-icon">🌾</div>
+
+                <div class="card-content">
+                    <h3>My Crops</h3>
+
+                    <h2>{{ total_crops }}</h2>
+
+                    <p>
+                        Manage and monitor all your crops
+                        from one place.
+                    </p>
+
+                    <a href="{% url 'crop_list' %}">
+                        Manage Crops <span>→</span>
+                    </a>
+                </div>
+
+            </div>
+
+
+            <!-- CROP RECOMMENDATION -->
+            <div class="card">
+
+                <div class="card-icon">🌱</div>
+
+                <div class="card-content">
+                    <h3>AI Crop Recommendation</h3>
+
+                    <p>
+                        Get AI-based crop recommendations
+                        using soil and farming conditions.
+                    </p>
+
+                    <a href="#">
+                        Explore AI <span>→</span>
+                    </a>
+                </div>
+
+            </div>
+
+
+            <!-- DISEASE DETECTION -->
+            <div class="card">
+
+                <div class="card-icon">🦠</div>
+
+                <div class="card-content">
+                    <h3>Crop Disease Detection</h3>
+
+                    <p>
+                        Upload a leaf image and let AI
+                        identify possible crop diseases.
+                    </p>
+
+                    <a href="{% url 'disease_detection' %}">
+                        Detect Disease <span>→</span>
+                    </a>
+                </div>
+
+            </div>
+
+
+            <!-- WEATHER -->
+            <div class="card">
+
+                <div class="card-icon">🌦️</div>
+
+                <div class="card-content">
+                    <h3>Smart Weather</h3>
+
+                    <p>
+                        Monitor weather conditions and
+                        make better farming decisions.
+                    </p>
+
+                    <a href="#">
+                        Check Weather <span>→</span>
+                    </a>
+                </div>
+
+            </div>
+
+
+            <!-- MARKET -->
+            <div class="card">
+
+                <div class="card-icon">💰</div>
+
+                <div class="card-content">
+                    <h3>Market Prices</h3>
+
+                    <p>
+                        Check crop prices and understand
+                        current market trends.
+                    </p>
+
+                    <a href="#">
+                        View Market <span>→</span>
+                    </a>
+                </div>
+
+            </div>
+
+
+            <!-- AI ASSISTANT -->
+            <div class="card">
+
+                <div class="card-icon">🤖</div>
+
+                <div class="card-content">
+                    <h3>AI Farmer Assistant</h3>
+
+                    <p>
+                        Ask farming questions and get
+                        AI-powered assistance.
+                    </p>
+
+                    <a href="#">
+                        Ask AI <span>→</span>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

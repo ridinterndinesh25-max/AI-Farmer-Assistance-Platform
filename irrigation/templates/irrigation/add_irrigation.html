@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Add Irrigation | AI Farmer{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/irrigation.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="irrigation-page">
+
+    <div class="irrigation-header">
+        <h1>💧 Add Irrigation Schedule</h1>
+        <p>Apni crop ke liye irrigation schedule save karein.</p>
+    </div>
+
+    <div class="irrigation-form-card">
+
+        <div class="irrigation-info">
+            💡 <strong>Smart Farming Tip:</strong>
+            Crop ki requirement ke according regular irrigation schedule maintain karein.
+        </div>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    <label>🌱 Crop Name</label>
+                    <input
+                        type="text"
+                        name="crop_name"
+                        placeholder="Example: Tomato"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label>🚜 Field Name</label>
+                    <input
+                        type="text"
+                        name="field_name"
+                        placeholder="Example: Field 1"
+                    >
+                </div>
+
+            </div>
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    <label>📅 Irrigation Date</label>
+                    <input
+                        type="date"
+                        name="irrigation_date"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label>⏰ Irrigation Time</label>
+                    <input
+                        type="time"
+                        name="irrigation_time"
+                    >
+                </div>
+
+            </div>
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    <label>💧 Water Amount (Litres)</label>
+                    <input
+                        type="number"
+                        name="water_amount"
+                        step="0.01"
+                        min="0"
+                        placeholder="Example: 500"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label>🌊 Water Source</label>
+
+                    <select name="water_source" required>
+
+                        <option value="borewell">
+                            💧 Borewell
+                        </option>
+
+                        <option value="canal">
+                            🌊 Canal
+                        </option>
+
+                        <option value="river">
+                            🏞️ River
+                        </option>
+
+                        <option value="rainwater">
+                            🌧️ Rainwater
+                        </option>
+
+                        <option value="tank">
+                            🛢️ Water Tank
+                        </option>
+
+                        <option value="other">
+                            📌 Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>📝 Notes</label>
+
+                <textarea
+                    name="notes"
+                    rows="5"
+                    placeholder="Example: Morning irrigation required..."
+                ></textarea>
+
+            </div>
+
+            <div class="irrigation-buttons">
+
+                <button
+                    type="submit"
+                    class="save-irrigation-btn"
+                >
+                    💧 Save Irrigation
+                </button>
+
+                <a
+                    href="{% url 'irrigation' %}"
+                    class="back-irrigation-btn"
+                >
+                    ← Back
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

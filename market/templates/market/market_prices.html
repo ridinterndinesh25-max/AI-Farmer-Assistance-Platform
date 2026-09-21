@@ -1,0 +1,195 @@
+```html
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Market Prices | AI Farmer
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/market.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="market-page">
+
+    <div class="market-header">
+
+        <div class="market-icon">
+            📊
+        </div>
+
+        <div>
+            <h1>Market Prices</h1>
+            <p>
+                Check crop prices and market trends for better selling decisions.
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="market-grid">
+
+        {% for item in market_data %}
+
+        <div class="market-card">
+
+
+            <!-- CROP IMAGE -->
+
+            <div class="crop-image-box">
+
+                {% if item.crop|lower == "wheat" %}
+
+                    <img
+                        src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80"
+                        alt="Wheat Crop"
+                    >
+
+                {% elif item.crop|lower == "onion" %}
+
+                <img
+                 src="https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?auto=format&fit=crop&w=800&q=80"
+                 alt="Onion Crop"
+                >
+                {% elif item.crop|lower == "soybean" %}
+
+                    <img
+                        src="https://images.unsplash.com/photo-1566385101042-1a0aa0c1268c?auto=format&fit=crop&w=800&q=80"
+                        alt="Soybean Crop"
+                    >
+
+                {% elif item.crop|lower == "maize" %}
+
+                <img
+                    src="https://kj1bcdn.b-cdn.net/media/49415/maize.jpeg?width=1200"
+                    alt="Maize Crop"
+                >
+                {% elif item.crop|lower == "potato" %}
+
+                    <img
+                        src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=800&q=80"
+                        alt="Potato Crop"
+                    >
+
+                {% elif item.crop|lower == "tomato" %}
+
+                    <img
+                        src="https://images.unsplash.com/photo-1546094096-0df4bcaaa337?auto=format&fit=crop&w=800&q=80"
+                        alt="Tomato Crop"
+                    >
+
+                {% else %}
+
+                    <img
+                        src="https://images.unsplash.com/photo-1499529112087-3cb3b73cec95?auto=format&fit=crop&w=800&q=80"
+                        alt="Crop"
+                    >
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- CROP + MANDI -->
+
+            <div class="market-card-top">
+
+                <div class="crop-icon">
+
+                    {% if item.crop|lower == "wheat" %}
+                        🌾
+                    {% elif item.crop|lower == "onion" %}
+                        🧅
+                    {% elif item.crop|lower == "soybean" %}
+                        🌱
+                    {% elif item.crop|lower == "maize" %}
+                        🌽
+                    {% elif item.crop|lower == "potato" %}
+                        🥔
+                    {% elif item.crop|lower == "tomato" %}
+                        🍅
+                    {% else %}
+                        🌾
+                    {% endif %}
+
+                </div>
+
+                <div>
+                    <h2>{{ item.crop }}</h2>
+                    <p>{{ item.mandi }}</p>
+                </div>
+
+            </div>
+
+
+            <!-- PRICE -->
+
+            <div class="market-price">
+
+                <span>₹{{ item.price }}</span>
+
+                <small>{{ item.unit }}</small>
+
+            </div>
+
+
+            <!-- STATUS -->
+
+            <div class="market-change
+                {% if item.status == 'up' %}
+                    price-up
+                {% else %}
+                    price-down
+                {% endif %}
+            ">
+
+                {% if item.status == "up" %}
+                    ▲
+                {% else %}
+                    ▼
+                {% endif %}
+
+                {{ item.change }}
+
+            </div>
+
+
+            <!-- FOOTER -->
+
+            <div class="market-footer">
+
+                <span>Market Price</span>
+
+                <span>Today</span>
+
+            </div>
+
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+
+    <!-- FARMER TIP -->
+
+    <div class="market-info">
+
+        <h2>💡 Farmer Market Tip</h2>
+
+        <p>
+            Compare current market prices before selling your crops.
+            Better market information can help farmers choose the right
+            time and place to sell their produce.
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}
+

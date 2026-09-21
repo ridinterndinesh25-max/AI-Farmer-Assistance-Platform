@@ -1,0 +1,82 @@
+<aside class="sidebar">
+
+    <div class="sidebar-title">
+        <span class="menu-title-icon">🌾</span>
+        <span>Farmer Menu</span>
+    </div>
+
+    <nav class="sidebar-menu">
+
+        <a href="{% url 'dashboard' %}">
+            <span class="menu-icon">🏠</span>
+            <span>Dashboard</span>
+        </a>
+
+        <a href="{% url 'crop_list' %}">
+            <span class="menu-icon">🌱</span>
+            <span>My Crops</span>
+        </a>
+
+        <a href="{% url 'add_crop' %}">
+            <span class="menu-icon">➕</span>
+            <span>Add Crop</span>
+        </a>
+
+        <a href="{% url 'disease_detection' %}">
+            <span class="menu-icon">🔬</span>
+            <span>Disease Detection</span>
+        </a>
+
+        <a href="{% url 'crop_recommendation' %}">
+            <span class="menu-icon">🌱</span>
+            <span>AI Crop Recommendation</span>
+        </a>
+
+        <a href="{% url 'weather_home' %}" class="sidebar-link">
+            <span class="menu-icon">🌦️</span>
+            <span>Weather</span>
+        </a>
+
+        <a href="{% url 'market_prices' %}">
+            <span class="menu-icon">💰</span>
+            <span>Market Prices</span>
+        </a>
+
+        <a href="{% url 'ai_assistant' %}">
+            <span class="menu-icon">🤖</span>
+            <span>AI Assistant</span>
+        </a>
+
+
+
+    <a href="{% url 'crop_calendar' %}">
+        <span class="menu-icon">📅</span>
+        <span>Crop Calendar</span>
+    </a>
+
+
+    <a href="{% url 'irrigation' %}">
+        <span class="menu-icon">💧</span>
+        <span>Irrigation</span>
+   </a>
+
+    <a href="{% url 'harvest:harvest_list' %}" class="sidebar-link">
+    <span class="sidebar-icon">🚜</span>
+    <span>Harvest Management</span>
+   </a>
+
+
+
+    <a href="{% url 'notifications:notification_list' %}">
+    <span class="menu-icon">🔔</span>
+    <span>Notifications</span>
+</a>
+
+       <a href="{% url 'profile' %}">
+            <span class="menu-icon">👨‍🌾</span>
+            <span>Profile</span>
+        </a>
+
+    </nav>
+
+</aside>

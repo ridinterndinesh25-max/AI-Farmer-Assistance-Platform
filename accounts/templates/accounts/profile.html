@@ -1,0 +1,479 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Farmer Profile | AI Farmer{% endblock %}
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="profile-page">
+
+
+<!-- ================= PROFILE HEADER ================= -->
+<div class="profile-header">
+
+    <div class="profile-avatar">
+
+        {% if farmer_profile.photo %}
+            <img
+                src="{{ farmer_profile.photo.url }}"
+                alt="Profile Photo"
+            >
+        {% else %}
+            👨‍🌾
+        {% endif %}
+
+    </div>
+
+    <div class="profile-header-text">
+
+        <h1>Farmer Profile</h1>
+
+        <p>
+            Manage your personal and farming information
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- ================= PROFILE CARD ================= -->
+<div class="profile-card">
+
+
+    <!-- ================= PERSONAL INFORMATION ================= -->
+    <div class="profile-section">
+
+        <div class="section-heading">
+
+            <div class="section-icon personal-icon">
+                👤
+            </div>
+
+            <div>
+                <h2>Personal Information</h2>
+
+                <p>
+                    Your personal account details
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="profile-grid">
+
+            <!-- USERNAME -->
+            <div class="profile-item">
+
+                <span>Username</span>
+
+                <strong>
+                    {{ request.user.username }}
+                </strong>
+
+            </div>
+<!-- USERNAME -->
+<div class="form-group">
+
+    <label for="username">
+        👤 Username
+    </label>
+
+    <input
+        type="text"
+        id="username"
+        name="username"
+        value="{{ request.user.username }}"
+        placeholder="Enter username"
+        required
+    >
+
+</div>
+
+
+            <!-- EMAIL -->
+            <div class="profile-item">
+
+                <span>Email Address</span>
+
+                <strong>
+
+                    {% if request.user.email %}
+                        {{ request.user.email }}
+                    {% else %}
+                        Not Added
+                    {% endif %}
+
+                </strong>
+
+            </div>
+
+
+            <!-- PHONE -->
+            <div class="profile-item">
+
+                <span>Phone Number</span>
+
+                <strong>
+
+                    {% if farmer_profile.phone %}
+                        {{ farmer_profile.phone }}
+                    {% else %}
+                        Not Added
+                    {% endif %}
+
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= FARM INFORMATION ================= -->
+    <div class="profile-section">
+
+        <div class="section-heading">
+
+            <div class="section-icon farm-icon">
+                🌾
+            </div>
+
+            <div>
+
+                <h2>Farm Information</h2>
+
+                <p>
+                    Your farming and land details
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="profile-grid">
+
+            <!-- VILLAGE -->
+            <div class="profile-item">
+
+                <span>Village</span>
+
+                <strong>
+
+                    {% if farmer_profile.village %}
+                        {{ farmer_profile.village }}
+                    {% else %}
+                        Not Added
+                    {% endif %}
+
+                </strong>
+
+            </div>
+
+
+            <!-- DISTRICT -->
+            <div class="profile-item">
+
+                <span>District</span>
+
+                <strong>
+
+                    {% if farmer_profile.district %}
+                        {{ farmer_profile.district }}
+                    {% else %}
+                        Not Added
+                    {% endif %}
+
+                </strong>
+
+            </div>
+
+
+            <!-- STATE -->
+            <div class="profile-item">
+
+                <span>State</span>
+
+                <strong>
+
+                    {% if farmer_profile.state %}
+                        {{ farmer_profile.state }}
+                    {% else %}
+                        Not Added
+                    {% endif %}
+
+                </strong>
+
+            </div>
+
+
+            <!-- LAND SIZE -->
+            <div class="profile-item">
+
+                <span>Land Size</span>
+
+                <strong>
+
+                    {% if farmer_profile.land_size %}
+                        {{ farmer_profile.land_size }} Acre
+                    {% else %}
+                        Not Added
+                    {% endif %}
+
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= ACTION BUTTONS ================= -->
+    <div class="profile-actions">
+
+        <!-- ADD INFORMATION -->
+        <button
+            type="button"
+            class="profile-btn add-btn"
+            onclick="openAddProfile()"
+        >
+            ➕ Add Information
+        </button>
+
+
+        <!-- EDIT PROFILE -->
+        <button
+            type="button"
+            class="profile-btn edit-btn"
+            onclick="openEditProfile()"
+        >
+            ✏️ Edit Profile
+        </button>
+
+
+        <!-- PROFILE HISTORY -->
+        <a
+            href="{% url 'profile_history' %}"
+            class="profile-btn"
+            style="
+                background: #166534;
+                color: white;
+                text-decoration: none;
+            "
+        >
+            📜 Profile History
+        </a>
+
+
+        <!-- LOGOUT -->
+        <a
+            href="{% url 'logout' %}"
+            class="profile-btn logout-btn"
+        >
+            🚪 Logout
+        </a>
+
+    </div>
+
+
+    <!-- ================= EDIT PROFILE ================= -->
+    <div
+        class="profile-section edit-profile-section"
+        id="editProfileSection"
+    >
+
+        <div class="section-heading">
+
+            <div class="section-icon edit-icon">
+                ✏️
+            </div>
+
+            <div>
+
+                <h2>Edit Profile</h2>
+
+                <p>
+                    Update your personal and farming information
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROFILE FORM -->
+        <form
+            method="POST"
+            enctype="multipart/form-data"
+        >
+
+            {% csrf_token %}
+
+
+            <div class="profile-form-grid">
+
+                <!-- EMAIL -->
+                <div class="form-group">
+
+                    <label for="email">
+                        📧 Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value="{{ request.user.email }}"
+                        placeholder="Enter your email"
+                    >
+
+                </div>
+
+
+                <!-- PHONE -->
+                <div class="form-group">
+
+                    <label for="phone">
+                        📱 Phone Number
+                    </label>
+
+                    <input
+                        type="text"
+                        id="phone"
+                        name="phone"
+                        value="{{ farmer_profile.phone }}"
+                        placeholder="Enter phone number"
+                    >
+
+                </div>
+
+
+                <!-- VILLAGE -->
+                <div class="form-group">
+
+                    <label for="village">
+                        🏡 Village
+                    </label>
+
+                    <input
+                        type="text"
+                        id="village"
+                        name="village"
+                        value="{{ farmer_profile.village }}"
+                        placeholder="Enter village"
+                    >
+
+                </div>
+
+
+                <!-- DISTRICT -->
+                <div class="form-group">
+
+                    <label for="district">
+                        📍 District
+                    </label>
+
+                    <input
+                        type="text"
+                        id="district"
+                        name="district"
+                        value="{{ farmer_profile.district }}"
+                        placeholder="Enter district"
+                    >
+
+                </div>
+
+
+                <!-- STATE -->
+                <div class="form-group">
+
+                    <label for="state">
+                        🗺️ State
+                    </label>
+
+                    <input
+                        type="text"
+                        id="state"
+                        name="state"
+                        value="{{ farmer_profile.state }}"
+                        placeholder="Enter state"
+                    >
+
+                </div>
+
+
+                <!-- LAND SIZE -->
+                <div class="form-group">
+
+                    <label for="land_size">
+                        🌱 Land Size (Acre)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="land_size"
+                        name="land_size"
+                        step="0.01"
+                        min="0"
+                        value="{{ farmer_profile.land_size }}"
+                        placeholder="Enter land size"
+                    >
+
+                </div>
+
+
+                <!-- PROFILE PHOTO -->
+                <div class="form-group">
+
+                    <label for="photo">
+                        📷 Profile Photo
+                    </label>
+
+                    <input
+                        type="file"
+                        id="photo"
+                        name="photo"
+                        accept="image/*"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- SAVE BUTTON -->
+            <div class="save-profile-area">
+
+                <button
+                    type="submit"
+                    class="profile-save-btn"
+                >
+                    💾 Save Changes
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+
+</div>
+
+
+</div>
+
+<!-- ================= PROFILE JAVASCRIPT ================= -->
+
+<script src="{% static 'js/profile.js' %}"></script>
+
+{% endblock %}

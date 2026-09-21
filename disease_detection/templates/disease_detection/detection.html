@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Disease Detection | AI Farmer{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/disease_detection.css' %}">
+<div class="form-page">
+
+    <div class="form-card disease-card">
+
+        <div class="form-header">
+
+            <div class="form-icon">🦠🌱</div>
+
+            <h1>Crop Disease Detection</h1>
+
+            <p>
+                Upload a crop or leaf image to detect possible diseases using AI.
+            </p>
+
+        </div>
+
+
+        <!-- Image Preview -->
+        <div class="image-preview-box">
+
+            <h3>🌿 Crop Image Preview</h3>
+
+            <img id="imagePreview"
+                 src=""
+                 alt="Crop Preview"
+                 style="display: none;">
+
+            <p id="previewText">
+                Select an image to preview it here
+            </p>
+
+        </div>
+
+
+        <form method="POST" enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+            <div class="crop-form-fields">
+
+                {{ form.as_p }}
+
+            </div>
+
+
+        <div style="display: flex; gap: 12px; justify-content: center;">
+
+         <button type="submit" class="auth-button">
+        🔍 Detect Disease
+         </button>
+
+        <a href="{% url 'detection_history' %}" class="auth-button">
+        📋 History
+         </a>
+
+</div>
+
+        </form>
+
+
+        <div class="form-footer">
+
+            <a href="{% url 'crop_list' %}">
+                ← Back to My Crops
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- Image Preview JavaScript -->
+
+<script>
+
+const imageInput = document.querySelector(
+    'input[type="file"]'
+);
+
+const imagePreview = document.getElementById(
+    "imagePreview"
+);
+
+const previewText = document.getElementById(
+    "previewText"
+);
+
+
+if (imageInput) {
+
+    imageInput.addEventListener("change", function () {
+
+        const file = this.files[0];
+
+        if (file) {
+
+            const reader = new FileReader();
+
+            reader.onload = function (event) {
+
+                imagePreview.src = event.target.result;
+
+                imagePreview.style.display = "block";
+
+                previewText.style.display = "none";
+
+            };
+
+            reader.readAsDataURL(file);
+
+        }
+
+    });
+
+}
+
+</script>
+
+{% endblock %}

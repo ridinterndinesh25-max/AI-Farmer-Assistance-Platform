@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Crop Disease Detection</h1>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <label>Select Crop Image:</label>
+
+    <input type="file" name="crop_image" accept="image/*" required>
+
+    <button type="submit">
+        Detect Disease
+    </button>
+</form>
+
+{% endblock %}

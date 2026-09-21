@@ -1,0 +1,455 @@
+
+/* =========================================================
+   🌾 AI FARMER - PREMIUM FARMER LOGIN
+   ========================================================= */
+
+.auth-container {
+    min-height: calc(100vh - 135px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px 20px;
+
+    box-sizing: border-box;
+
+    position: relative;
+    overflow: hidden;
+
+    /* 🌱 FARMING BACKGROUND */
+    background:
+        linear-gradient(
+            135deg,
+            #dcfce7 0%,
+            #ecfccb 22%,
+            #fef3c7 45%,
+            #cffafe 70%,
+            #dbeafe 100%
+        );
+}
+
+
+/* =========================================================
+   🌈 BACKGROUND COLORFUL GLOW
+   ========================================================= */
+
+.auth-container::before {
+    content: "";
+
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    top: -180px;
+    left: -120px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(34,197,94,.35),
+            transparent 68%
+        );
+
+    border-radius: 50%;
+
+    filter: blur(15px);
+}
+
+
+.auth-container::after {
+    content: "";
+
+    position: absolute;
+
+    width: 450px;
+    height: 450px;
+
+    right: -160px;
+    bottom: -200px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(14,165,233,.30),
+            transparent 68%
+        );
+
+    border-radius: 50%;
+
+    filter: blur(15px);
+}
+
+
+/* =========================================================
+   🌾 LOGIN CARD
+   ========================================================= */
+
+.auth-card {
+    width: 100%;
+    max-width: 430px;
+
+    position: relative;
+    z-index: 2;
+
+    padding: 38px 35px;
+
+    box-sizing: border-box;
+
+    background:
+        rgba(255,255,255,.82);
+
+    backdrop-filter:
+        blur(20px);
+
+    -webkit-backdrop-filter:
+        blur(20px);
+
+    border:
+        1px solid rgba(255,255,255,.90);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 25px 60px rgba(22,101,52,.18),
+        0 10px 30px rgba(14,165,233,.12),
+        inset 0 1px 4px rgba(255,255,255,.95);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+
+.auth-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 30px 70px rgba(22,101,52,.23),
+        0 15px 35px rgba(14,165,233,.15),
+        inset 0 1px 4px rgba(255,255,255,1);
+}
+
+
+/* =========================================================
+   🌾 LOGIN TITLE
+   ========================================================= */
+
+.auth-card h1 {
+    margin: 0;
+
+    text-align: center;
+
+    font-size: 29px;
+
+    font-weight: 800;
+
+    background:
+        linear-gradient(
+            90deg,
+            #166534,
+            #16a34a,
+            #65a30d,
+            #d97706,
+            #0284c7
+        );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    background-clip: text;
+}
+
+
+/* =========================================================
+   🌱 SUBTITLE
+   ========================================================= */
+
+.auth-subtitle {
+    margin: 10px 0 28px;
+
+    text-align: center;
+
+    color: #64748b;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   🔔 DJANGO MESSAGE
+   ========================================================= */
+
+.message {
+    margin-bottom: 20px;
+
+    padding: 11px 14px;
+
+    border-radius: 11px;
+
+    color: #854d0e;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fef9c3,
+            #fde68a
+        );
+
+    border:
+        1px solid #facc15;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    box-shadow:
+        0 5px 15px rgba(234,179,8,.12);
+}
+
+
+/* =========================================================
+   📝 FORM GROUP
+   ========================================================= */
+
+.form-group {
+    margin-bottom: 19px;
+}
+
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #166534;
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   ✏️ INPUT
+   ========================================================= */
+
+.form-group input {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    box-sizing: border-box;
+
+    border:
+        1px solid #bbf7d0;
+
+    border-radius: 12px;
+
+    outline: none;
+
+    background:
+        rgba(255,255,255,.90);
+
+    color: #1e293b;
+
+    font-size: 14px;
+
+    transition:
+        all .25s ease;
+
+    box-shadow:
+        inset 0 1px 3px rgba(15,23,42,.05);
+}
+
+
+.form-group input:hover {
+    border-color: #86efac;
+}
+
+
+.form-group input:focus {
+    border-color: #22c55e;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 4px rgba(34,197,94,.12),
+        0 6px 18px rgba(34,197,94,.10);
+}
+
+
+.form-group input::placeholder {
+    color: #94a3b8;
+}
+
+
+/* =========================================================
+   🚜 LOGIN BUTTON
+   ========================================================= */
+
+.auth-button {
+    width: 100%;
+
+    margin-top: 5px;
+
+    padding: 13px 20px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    cursor: pointer;
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    letter-spacing: .2px;
+
+    background:
+        linear-gradient(
+            100deg,
+            #15803d 0%,
+            #16a34a 25%,
+            #65a30d 50%,
+            #0d9488 75%,
+            #0284c7 100%
+        );
+
+    background-size: 200% 100%;
+
+    box-shadow:
+        0 9px 22px rgba(22,163,74,.25);
+
+    transition:
+        all .3s ease;
+}
+
+
+.auth-button:hover {
+    background-position: 100% 0;
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 13px 28px rgba(14,116,144,.28);
+}
+
+
+.auth-button:active {
+    transform:
+        scale(.98);
+}
+
+
+/* =========================================================
+   🌱 REGISTER FOOTER
+   ========================================================= */
+
+.auth-footer {
+    margin: 25px 0 0;
+
+    padding-top: 19px;
+
+    text-align: center;
+
+    border-top:
+        1px solid #dbeafe;
+
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+
+.auth-footer a {
+    color: #15803d;
+
+    font-weight: 800;
+
+    text-decoration: none;
+
+    transition: .2s ease;
+}
+
+
+.auth-footer a:hover {
+    color: #0284c7;
+
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   ✨ CARD TOP COLOR LINE
+   ========================================================= */
+
+.auth-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 12%;
+
+    width: 76%;
+    height: 4px;
+
+    border-radius:
+        0 0 10px 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #16a34a,
+            #84cc16,
+            #eab308,
+            #f97316,
+            #06b6d4,
+            #2563eb
+        );
+}
+
+
+/* =========================================================
+   📱 MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .auth-container {
+        min-height: calc(100vh - 135px);
+
+        padding: 25px 15px;
+    }
+
+    .auth-card {
+        padding: 32px 22px;
+
+        border-radius: 21px;
+    }
+
+    .auth-card h1 {
+        font-size: 24px;
+    }
+
+    .auth-subtitle {
+        font-size: 13px;
+    }
+
+    .form-group input {
+        padding: 12px;
+    }
+
+    .auth-button {
+        padding: 12px;
+    }
+}
+
