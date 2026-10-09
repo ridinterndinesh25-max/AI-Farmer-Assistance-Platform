@@ -1544,3 +1544,1053 @@
     }
 
 }
+
+/* =========================================
+   CROP PRODUCTION INSIGHT DASHBOARD
+========================================= */
+
+.production-dashboard {
+    position: relative;
+    margin-top: 35px;
+    padding: 24px;
+    border: 1px solid rgba(160, 195, 215, 0.28);
+    border-radius: 18px;
+    color: #edf5fc;
+    background: linear-gradient(145deg, #152738, #0d1825);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+}
+
+.production-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(180, 205, 225, 0.2);
+}
+
+.production-heading h2 {
+    color: #ffffff;
+    font-size: clamp(20px, 2.5vw, 30px);
+    margin: 8px 0;
+}
+
+.production-heading p {
+    color: #aabed0;
+    font-size: 13px;
+}
+
+.production-tag {
+    display: inline-block;
+    color: #9fe68c;
+    background: rgba(77, 160, 82, 0.15);
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+}
+
+.production-icon {
+    font-size: 38px;
+    background: rgba(117, 177, 90, 0.13);
+    padding: 12px;
+    border-radius: 14px;
+}
+
+.production-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.production-stat {
+    min-width: 0;
+    padding: 18px 14px;
+    border: 1px solid #354b61;
+    border-radius: 12px;
+    background: linear-gradient(145deg, #1c3249, #122236);
+}
+
+.production-stat > span {
+    display: block;
+    color: #b6c7d9;
+    font-size: 12px;
+    margin-bottom: 12px;
+}
+
+.production-stat h3 {
+    font-size: clamp(21px, 2.3vw, 30px);
+    color: #fff;
+    margin: 0 0 10px;
+}
+
+.production-stat h3 small {
+    font-size: 11px;
+    font-weight: 400;
+}
+
+.production-stat p {
+    color: #8fe18a;
+    font-size: 11px;
+}
+
+.production-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.production-panel {
+    min-width: 0;
+    padding: 16px;
+    border: 1px solid #344a60;
+    border-radius: 12px;
+    background: rgba(19, 35, 52, 0.94);
+}
+
+.production-panel h3 {
+    color: #f3f7fb;
+    font-size: 15px;
+    font-weight: 700;
+    padding-bottom: 12px;
+    margin: 0 0 14px;
+    border-bottom: 1px solid rgba(173, 197, 220, 0.2);
+}
+
+.trend-panel canvas {
+    width: 100% !important;
+    height: 230px !important;
+}
+
+.yield-panel canvas {
+    width: 100% !important;
+    height: 250px !important;
+}
+
+.pest-panel canvas {
+    width: 100% !important;
+    height: 190px !important;
+}
+
+.cost-panel {
+    grid-column: 1 / -1;
+}
+
+.cost-panel canvas {
+    width: 100% !important;
+    height: 230px !important;
+}
+
+.crops-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+.top-crop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 13px;
+    margin-bottom: 10px;
+    border-radius: 7px;
+    background: #0c1927;
+    color: #fff;
+    font-size: 13px;
+}
+
+.top-crop span {
+    padding: 7px 10px;
+    min-width: 95px;
+    border-radius: 5px;
+    font-weight: 700;
+}
+
+.top-crop strong {
+    font-size: 14px;
+}
+
+.corn span { background: #538d40; }
+.wheat span { background: #287e66; }
+.rice span { background: #bd5148; }
+.soybean span { background: #bf6b35; }
+
+.regional-panel {
+    background: linear-gradient(145deg, #e1e9ee, #cddbe4);
+    color: #1b2c3a;
+}
+
+.regional-panel h3 {
+    color: #1b2c3a;
+    border-bottom-color: #bdcbd5;
+}
+
+.regional-map {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: repeat(3, 48px);
+    gap: 5px;
+    max-width: 350px;
+    margin: 15px auto;
+}
+
+.region {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 7px;
+    clip-path: polygon(12% 0, 87% 5%, 100% 48%,
+                       77% 100%, 8% 87%, 0 28%);
+}
+
+.region-green { background: #3d8b43; }
+.region-lime { background: #8dbd4e; }
+.region-yellow { background: #e7c834; color: #263323; }
+.region-orange { background: #eb8b2c; }
+.region-red { background: #d43c36; }
+
+.regional-note {
+    color: #304456;
+    font-size: 11px;
+    text-align: center;
+    margin-top: 14px;
+}
+
+.sample-note {
+    display: block;
+    color: #52697b;
+    font-size: 10px;
+    text-align: center;
+    margin-top: 8px;
+}
+
+.weather-metrics {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 15px 0;
+}
+
+.weather-circle {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    border: 8px solid #69b95e;
+    border-right-color: #a6cf62;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(80, 165, 86, 0.08);
+}
+
+.weather-circle strong {
+    font-size: 23px;
+    color: #fff;
+}
+
+.weather-circle span {
+    color: #b9cbdc;
+    font-size: 11px;
+    margin-top: 7px;
+}
+
+.weather-circle.temperature {
+    border-color: #e5a13a;
+    border-left-color: #df4b42;
+    background: rgba(220, 112, 44, 0.08);
+}
+
+/* Responsive layout */
+@media (max-width: 850px) {
+    .production-dashboard {
+        padding: 16px;
+    }
+
+    .production-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cost-panel {
+        grid-column: auto;
+    }
+
+    .production-stats {
+        gap: 8px;
+    }
+
+    .production-stat {
+        padding: 14px 10px;
+    }
+}
+
+@media (max-width: 520px) {
+    .production-dashboard {
+        margin-top: 22px;
+        padding: 12px;
+        border-radius: 12px;
+    }
+
+    .production-heading h2 {
+        font-size: 19px;
+    }
+
+    .production-icon {
+        font-size: 26px;
+        padding: 8px;
+    }
+
+    .production-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .production-stat h3 {
+        font-size: 25px;
+    }
+
+    .production-panel {
+        padding: 12px;
+    }
+
+    .regional-map {
+        grid-template-rows: repeat(3, 42px);
+    }
+
+    .weather-circle {
+        width: 110px;
+        height: 110px;
+    }
+}
+
+/* ===== FIX DASHBOARD LAYOUT WITH SIDEBAR ===== */
+
+.dashboard-page {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    overflow-x: clip;
+}
+
+.dashboard-content {
+    position: relative;
+    width: 100%;
+    max-width: 1600px;
+    min-width: 0;
+    margin: 0 auto;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.dashboard-header,
+.dashboard-cards,
+.production-dashboard {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.production-dashboard {
+    margin: 30px 0;
+}
+
+.production-grid,
+.production-stats,
+.production-panel {
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.production-grid canvas {
+    max-width: 100%;
+}
+
+@media (max-width: 768px) {
+    .dashboard-content {
+        padding: 12px;
+    }
+
+    .production-dashboard {
+        padding: 12px;
+    }
+
+    .production-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .production-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .production-heading {
+        flex-wrap: wrap;
+    }
+}
+/* ==========================================
+   AI FARMER - COLORFUL FARM ANALYTICS
+   ========================================== */
+
+.farm-analytics {
+    width: 100%;
+    max-width: 1400px;
+    margin: 30px auto;
+    padding: 0 10px;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.analytics-heading {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 22px;
+}
+
+.analytics-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 15px;
+    font-size: 25px;
+    background: linear-gradient(135deg, #dcfce7, #a7f3d0);
+    box-shadow: 0 6px 18px rgba(34, 197, 94, .15);
+}
+
+.analytics-heading h2 {
+    margin: 0 0 5px;
+    color: #166534;
+    font-size: 23px;
+    font-weight: 800;
+}
+
+.analytics-heading p {
+    margin: 0;
+    color: #64748b;
+    font-size: 13px;
+}
+
+/* Responsive two-column layout */
+
+.analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    align-items: stretch;
+}
+
+/* Glass-inspired cards */
+
+.analytics-card {
+    position: relative;
+    min-width: 0;
+    padding: 22px;
+    overflow: hidden;
+    border-radius: 22px;
+    border: 1px solid rgba(255, 255, 255, .9);
+    box-shadow: 0 12px 35px rgba(15, 23, 42, .08);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.crop-health-card {
+    background: linear-gradient(145deg, #ffffff, #f0fdf4, #ecfeff);
+}
+
+.irrigation-card {
+    background: linear-gradient(145deg, #ffffff, #eff6ff, #ecfeff);
+}
+
+.analytics-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 38px rgba(15, 23, 42, .12);
+}
+
+.analytics-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.analytics-label {
+    display: block;
+    margin-bottom: 8px;
+    color: #64748b;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.3px;
+}
+
+.analytics-card-header h3 {
+    margin: 0 0 7px;
+    color: #172554;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.analytics-card-header p {
+    margin: 0;
+    color: #64748b;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.analytics-badge {
+    flex-shrink: 0;
+    padding: 7px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.green-badge {
+    color: #15803d;
+    background: #dcfce7;
+}
+
+.blue-badge {
+    color: #1d4ed8;
+    background: #dbeafe;
+}
+
+/* Chart sizes */
+
+.chart-container {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    margin: 20px auto 10px;
+}
+
+.doughnut-container {
+    max-width: 300px;
+    height: 235px;
+}
+
+.irrigation-container {
+    height: 235px;
+}
+
+/* Health legend */
+
+.health-legend {
+    display: grid;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: #475569;
+    font-size: 12px;
+}
+
+.legend-item strong {
+    margin-left: auto;
+    color: #172554;
+    font-size: 13px;
+}
+
+.legend-dot {
+    width: 11px;
+    height: 11px;
+    flex-shrink: 0;
+    border-radius: 4px;
+}
+
+.healthy-dot {
+    background: #22c55e;
+}
+
+.disease-dot {
+    background: #f97316;
+}
+
+/* Water summary */
+
+.irrigation-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid rgba(59, 130, 246, .10);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, .72);
+}
+
+.summary-label {
+    color: #64748b;
+    font-size: 12px;
+}
+
+.irrigation-summary h2 {
+    margin: 7px 0 0;
+    color: #1d4ed8;
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.irrigation-summary small {
+    font-size: 14px;
+}
+
+.water-summary-icon {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #dbeafe, #a5f3fc);
+    font-size: 23px;
+}
+
+/* Bottom tips */
+
+.analytics-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 18px;
+    padding: 12px;
+    border-radius: 12px;
+    background: rgba(34, 197, 94, .08);
+    color: #166534;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.water-note {
+    color: #1e40af;
+    background: rgba(59, 130, 246, .08);
+}
+
+/* Tablet */
+
+@media (max-width: 1000px) {
+    .analytics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .analytics-card {
+        padding: 20px;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+    .farm-analytics {
+        margin: 22px auto;
+        padding: 0 5px;
+    }
+
+    .analytics-heading h2 {
+        font-size: 19px;
+    }
+
+    .analytics-icon {
+        width: 43px;
+        height: 43px;
+    }
+
+    .analytics-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+    }
+
+    .analytics-card {
+        padding: 17px;
+        border-radius: 18px;
+    }
+
+    .analytics-card-header h3 {
+        font-size: 16px;
+    }
+
+    .doughnut-container {
+        height: 215px;
+    }
+
+    .irrigation-container {
+        height: 220px;
+    }
+
+    .irrigation-summary h2 {
+        font-size: 24px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .analytics-card {
+        transition: none;
+    }
+
+    .analytics-card:hover {
+        transform: none;
+    }
+}
+
+/* ===== SMART FARMING ANALYTICS - COLORFUL THEME ===== */
+
+.farm-analytics {
+    width: 100%;
+    max-width: 1400px;
+    margin: 35px auto;
+    padding: 25px;
+    box-sizing: border-box;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #e0fce8, #e0f2fe, #fef3c7);
+    box-shadow: 0 12px 35px rgba(22, 101, 52, 0.12);
+}
+
+.analytics-heading {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.analytics-icon {
+    width: 58px;
+    height: 58px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 18px;
+    font-size: 30px;
+    background: linear-gradient(135deg, #16a34a, #86efac);
+    box-shadow: 0 7px 18px #16a34a40;
+}
+
+.analytics-heading h2 {
+    margin: 0 0 7px;
+    color: #14532d;
+    font-size: 27px;
+    font-weight: 800;
+}
+
+.analytics-heading p {
+    margin: 0;
+    color: #475569;
+}
+
+.analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.analytics-card {
+    min-width: 0;
+    padding: 23px;
+    border-radius: 22px;
+    border: 1px solid rgba(255,255,255,.9);
+    box-shadow: 0 12px 28px rgba(15,23,42,.10);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.crop-health-card {
+    background: linear-gradient(145deg, #ffffff, #dcfce7, #d1fae5);
+    border-top: 5px solid #22c55e;
+}
+
+.irrigation-card {
+    background: linear-gradient(145deg, #ffffff, #dbeafe, #cffafe);
+    border-top: 5px solid #0ea5e9;
+}
+
+.analytics-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 35px rgba(15,23,42,.16);
+}
+
+.analytics-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.analytics-label {
+    display: block;
+    margin-bottom: 9px;
+    color: #15803d;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.irrigation-card .analytics-label {
+    color: #0369a1;
+}
+
+.analytics-card-header h3 {
+    margin: 0 0 8px;
+    color: #172554;
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.analytics-card-header p {
+    margin: 0;
+    color: #64748b;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.analytics-badge {
+    padding: 8px 12px;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.green-badge {
+    color: #166534;
+    background: #bbf7d0;
+}
+
+.blue-badge {
+    color: #075985;
+    background: #bae6fd;
+}
+
+.chart-container {
+    position: relative;
+    width: 100%;
+    margin: 20px auto;
+}
+
+.doughnut-container {
+    height: 235px;
+    max-width: 300px;
+}
+
+.irrigation-container {
+    height: 235px;
+}
+
+.health-legend {
+    display: grid;
+    gap: 13px;
+    margin-top: 15px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #334155;
+    font-size: 13px;
+}
+
+.legend-item strong {
+    margin-left: auto;
+    color: #14532d;
+    font-size: 14px;
+}
+
+.legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 4px;
+}
+
+.healthy-dot {
+    background: #22c55e;
+}
+
+.disease-dot {
+    background: #f97316;
+}
+
+.irrigation-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 20px;
+    padding: 16px;
+    border-radius: 17px;
+    background: linear-gradient(110deg, #dbeafe, #ffffff);
+    border: 1px solid #bfdbfe;
+}
+
+.summary-label {
+    color: #475569;
+    font-size: 13px;
+}
+
+.irrigation-summary h2 {
+    margin: 8px 0 0;
+    color: #1d4ed8;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.irrigation-summary h2 small {
+    font-size: 15px;
+}
+
+.water-summary-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #38bdf8, #2563eb);
+    font-size: 25px;
+}
+
+.analytics-note {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+    padding: 13px;
+    border-radius: 13px;
+    color: #166534;
+    background: #bbf7d080;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.water-note {
+    color: #075985;
+    background: #bae6fd80;
+}
+
+@media (max-width: 900px) {
+    .analytics-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .farm-analytics {
+        padding: 15px;
+        margin: 20px auto;
+    }
+
+    .analytics-heading h2 {
+        font-size: 20px;
+    }
+
+    .analytics-card {
+        padding: 16px;
+    }
+
+    .analytics-card-header h3 {
+        font-size: 16px;
+    }
+
+    .doughnut-container,
+    .irrigation-container {
+        height: 210px;
+    }
+}
+
+/* Only Smart Farming Analytics heading */
+
+.farm-analytics > .analytics-heading {
+    background: linear-gradient(135deg, #071b16, #0b1e32);
+    padding: 20px 24px;
+    border: 1px solid #245044;
+    border-radius: 18px;
+    margin-bottom: 22px;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+}
+
+.farm-analytics > .analytics-heading .analytics-icon {
+    background: linear-gradient(135deg, #166534, #22c55e);
+}
+
+.farm-analytics > .analytics-heading h2 {
+    color: #86efac !important;
+    margin: 0 0 7px;
+}
+
+.farm-analytics > .analytics-heading p {
+    color: #e2e8f0 !important;
+    margin: 0;
+}
+
+/* Smart Farming Analytics - Bright Colorful Heading Only */
+
+.farm-analytics > .analytics-heading {
+    position: relative;
+    overflow: hidden;
+    padding: 24px;
+    border-radius: 20px;
+
+    background:
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(34, 197, 94, 0.30),
+            transparent 35%
+        ),
+        linear-gradient(
+            120deg,
+            #061b16 0%,
+            #103b30 50%,
+            #10294b 100%
+        ) !important;
+
+    border: 1px solid rgba(74, 222, 128, 0.55);
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.30),
+        inset 0 0 25px rgba(34, 197, 94, 0.08);
+}
+
+/* Bright green icon */
+.farm-analytics > .analytics-heading .analytics-icon {
+    background: linear-gradient(135deg, #22c55e, #a3e635) !important;
+    color: #052e16;
+    box-shadow: 0 0 22px rgba(74, 222, 128, 0.45);
+}
+
+/* Colorful title */
+.farm-analytics > .analytics-heading h2 {
+    color: #86efac !important;
+    font-size: 28px;
+    font-weight: 800;
+    text-shadow: 0 0 16px rgba(74, 222, 128, 0.25);
+}
+
+/* Clear subtitle */
+.farm-analytics > .analytics-heading p {
+    color: #f1f5f9 !important;
+    font-size: 14px;
+    opacity: 1;
+}
+
+@media (max-width: 600px) {
+    .farm-analytics > .analytics-heading {
+        padding: 17px;
+    }
+
+    .farm-analytics > .analytics-heading h2 {
+        font-size: 21px;
+    }
+}
+
+
+

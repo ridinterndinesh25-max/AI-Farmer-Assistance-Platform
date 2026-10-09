@@ -1153,3 +1153,133 @@
     }
 }
 
+
+/* ==========================================
+   AI FARMER - MOBILE NAVBAR RESPONSIVE FIX
+   Paste at the VERY END of navbar.css
+========================================== */
+
+.mobile-menu-btn {
+    display: none;
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 9px;
+    padding: 7px 12px;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 10002;
+}
+
+.navbar {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.navbar-brand {
+    min-width: 0;
+}
+
+/* Tablet and mobile */
+@media (max-width: 768px) {
+    .navbar {
+        height: 64px !important;
+        padding: 8px 12px !important;
+        gap: 8px;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow: visible !important;
+    }
+
+    .mobile-menu-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+    }
+
+    .navbar-brand {
+        font-size: 17px !important;
+        white-space: nowrap;
+        margin-right: auto;
+    }
+
+    .navbar-links {
+        display: none;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 14px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 9px;
+        background: linear-gradient(145deg, #0b1025, #123d27, #254b7a);
+        border-top: 1px solid rgba(255,255,255,0.15);
+        border-bottom: 1px solid rgba(255,255,255,0.15);
+        box-shadow: 0 12px 25px rgba(0,0,0,0.35);
+        z-index: 10001;
+    }
+
+    .navbar-links.active {
+        display: flex !important;
+    }
+
+    .navbar-links a {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 12px 14px !important;
+        text-align: left;
+        white-space: normal;
+    }
+
+    .navbar-user {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px 14px;
+        overflow-wrap: anywhere;
+    }
+
+    .main-content {
+        margin-top: 64px !important;
+    }
+
+    .sidebar {
+        top: 64px !important;
+        height: calc(100vh - 64px) !important;
+    }
+
+    .dashboard-video,
+    .dashboard-video-overlay {
+        top: 64px !important;
+        height: calc(100vh - 64px) !important;
+    }
+}
+
+/* Very small phones */
+@media (max-width: 360px) {
+    .navbar {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+        gap: 7px;
+    }
+
+    .navbar-brand {
+        font-size: 15px !important;
+    }
+
+    .mobile-menu-btn {
+        width: 38px;
+        height: 38px;
+        padding: 5px;
+    }
+}

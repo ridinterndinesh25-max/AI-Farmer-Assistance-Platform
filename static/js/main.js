@@ -44,3 +44,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    const menuButton = document.querySelector(".mobile-menu-btn");
+    const navbarLinks = document.querySelector(".navbar-links");
+
+    if (!menuButton || !navbarLinks) return;
+
+    menuButton.setAttribute("aria-expanded", "false");
+
+    menuButton.addEventListener("click", function () {
+        const isOpen = navbarLinks.classList.toggle("active");
+
+        menuButton.setAttribute("aria-expanded", String(isOpen));
+        menuButton.setAttribute(
+            "aria-label",
+            isOpen ? "Close Menu" : "Open Menu"
+        );
+
+        menuButton.textContent = isOpen ? "✕" : "☰";
+    });
+
+    navbarLinks.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+            navbarLinks.classList.remove("active");
+            menuButton.setAttribute("aria-expanded", "false");
+            menuButton.setAttribute("aria-label", "Open Menu");
+            menuButton.textContent = "☰";
+        });
+    });
+});
+

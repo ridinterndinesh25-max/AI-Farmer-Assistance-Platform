@@ -194,4 +194,355 @@
 
 </div>
 
+<!-- CROP PRODUCTION INSIGHT DASHBOARD -->
+<section class="production-dashboard">
+
+    <div class="production-heading">
+        <div>
+            <span class="production-tag">AI FARM ANALYTICS</span>
+            <h2>Crop Production Insight Dashboard</h2>
+            <p>Data Analysis &amp; Smart Farming Insights</p>
+        </div>
+        <div class="production-icon">🌾</div>
+    </div>
+
+    <!-- SUMMARY CARDS -->
+    <div class="production-stats">
+
+        <div class="production-stat">
+            <span>Total Production</span>
+            <h3>3.25 <small>M Tons</small></h3>
+            <p>↑ 8.5% vs Last Year</p>
+        </div>
+
+        <div class="production-stat">
+            <span>Total Harvested Area</span>
+            <h3>1.15 <small>M Hectares</small></h3>
+            <p>↑ 5.2% vs Last Year</p>
+        </div>
+
+        <div class="production-stat">
+            <span>Average Yield</span>
+            <h3>2.83 <small>Tons/Ha</small></h3>
+            <p>↑ 3.1% vs Last Year</p>
+        </div>
+
+    </div>
+
+    <!-- CHARTS ROW 1 -->
+    <div class="production-grid">
+
+        <div class="production-panel trend-panel">
+            <h3>Production Trend</h3>
+            <canvas id="productionTrendChart"></canvas>
+        </div>
+
+        <div class="production-panel crops-panel">
+            <h3>Top Crops</h3>
+
+            <div class="top-crop corn">
+                <span>Corn</span><strong>1.20M</strong>
+            </div>
+            <div class="top-crop wheat">
+                <span>Wheat</span><strong>0.95M</strong>
+            </div>
+            <div class="top-crop rice">
+                <span>Rice</span><strong>0.65M</strong>
+            </div>
+            <div class="top-crop soybean">
+                <span>Soybean</span><strong>0.45M</strong>
+            </div>
+        </div>
+
+        <div class="production-panel yield-panel">
+            <h3>Yield Comparison</h3>
+            <canvas id="yieldComparisonChart"></canvas>
+        </div>
+
+        <div class="production-panel regional-panel">
+            <h3>Regional Production</h3>
+
+            <div class="regional-map">
+                <span class="region region-green">MP</span>
+                <span class="region region-lime">UP</span>
+                <span class="region region-yellow">RJ</span>
+                <span class="region region-orange">BR</span>
+                <span class="region region-red">WB</span>
+                <span class="region region-green">GJ</span>
+                <span class="region region-lime">MH</span>
+                <span class="region region-yellow">CG</span>
+                <span class="region region-orange">OD</span>
+                <span class="region region-red">AP</span>
+                <span class="region region-lime">KA</span>
+                <span class="region region-orange">TN</span>
+            </div>
+
+            <p class="regional-note">
+                🟩 Low &nbsp; 🟨 Medium &nbsp; 🟥 High production
+            </p>
+            <small class="sample-note">Illustrative regional data</small>
+        </div>
+
+        <div class="production-panel weather-panel">
+            <h3>Weather Impact</h3>
+
+            <div class="weather-metrics">
+                <div class="weather-circle">
+                    <strong>78%</strong>
+                    <span>Of Normal</span>
+                </div>
+                <div class="weather-circle temperature">
+                    <strong>+1.5°C</strong>
+                    <span>Above Average</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="production-panel pest-panel">
+            <h3>Pest &amp; Disease Cases</h3>
+            <canvas id="pestCasesChart"></canvas>
+        </div>
+
+        <div class="production-panel cost-panel">
+            <h3>Cost Analysis</h3>
+            <canvas id="productionCostChart"></canvas>
+        </div>
+
+    </div>
+</section>
+
+<!-- Chart.js library -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+(function () {
+    if (typeof Chart === "undefined") return;
+
+    const gridColor = "rgba(170,190,210,0.16)";
+    const textColor = "#dce7f2";
+
+    Chart.defaults.color = textColor;
+    Chart.defaults.font.family = "Arial, sans-serif";
+
+    function makeChart(id, type, labels, datasets, extraOptions = {}) {
+        const canvas = document.getElementById(id);
+        if (!canvas) return;
+
+        new Chart(canvas, {
+            type: type,
+            data: { labels: labels, datasets: datasets },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: "bottom",
+                        labels: { boxWidth: 10, padding: 12 }
+                    }
+                },
+                scales: {
+                    x: { grid: { color: gridColor } },
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: gridColor }
+                    }
+                },
+                ...extraOptions
+            }
+        });
+    }
+
+    makeChart(
+        "productionTrendChart",
+        "line",
+        ["2017", "2018", "2019", "2020", "2021"],
+        [
+            {
+                label: "Corn",
+                data: [2.2, 2.5, 2.8, 2.5, 3.3],
+                borderColor: "#60b8f0",
+                tension: 0.3
+            },
+            {
+                label: "Wheat",
+                data: [1.5, 1.8, 2.1, 2.2, 2.4],
+                borderColor: "#81cb6c",
+                tension: 0.3
+            },
+            {
+                label: "Rice",
+                data: [2.1, 2.4, 2.7, 2.5, 2.9],
+                borderColor: "#f4c54e",
+                tension: 0.3
+            },
+            {
+                label: "Soybean",
+                data: [2.8, 3.0, 2.6, 3.0, 3.4],
+                borderColor: "#fa776e",
+                tension: 0.3
+            }
+        ],
+        {
+            plugins: {
+                legend: {
+                    position: "bottom",
+                    labels: { boxWidth: 8, padding: 8 }
+                }
+            }
+        }
+    );
+
+    makeChart(
+        "yieldComparisonChart",
+        "bar",
+        ["Wheat", "Corn", "Rice", "Soybean"],
+        [
+            {
+                label: "Current Yield",
+                data: [3.8, 3.7, 3.8, 3.4],
+                backgroundColor: "#55aceb"
+            },
+            {
+                label: "Previous Yield",
+                data: [3.4, 3.1, 3.5, 3.2],
+                backgroundColor: "#78bd55"
+            }
+        ]
+    );
+
+    makeChart(
+        "pestCasesChart",
+        "bar",
+        ["Low", "Moderate", "High"],
+        [{
+            label: "Cases",
+            data: [25, 40, 15],
+            backgroundColor: ["#38a169", "#f4bd36", "#e65d4b"]
+        }],
+        {
+            plugins: { legend: { display: false } }
+        }
+    );
+
+    makeChart(
+        "productionCostChart",
+        "bar",
+        ["Wheat", "Corn", "Rice", "Soybean"],
+        [
+            {
+                label: "Seeds",
+                data: [60, 70, 75, 55],
+                backgroundColor: "#55aceb"
+            },
+            {
+                label: "Fertilizers",
+                data: [40, 45, 55, 40],
+                backgroundColor: "#78bd55"
+            },
+            {
+                label: "Labor",
+                data: [110, 120, 100, 90],
+                backgroundColor: "#ed762b"
+            },
+            {
+                label: "Transport",
+                data: [50, 55, 65, 45],
+                backgroundColor: "#f4bd36"
+            }
+        ],
+        {
+            scales: {
+                x: { stacked: true, grid: { display: false } },
+                y: { stacked: true, grid: { color: gridColor } }
+            }
+        }
+    );
+})();
+</script>
+<!-- ================= CROP HEALTH & IRRIGATION GRAPHS ================= -->
+
+<section class="farm-analytics">
+
+    <div class="analytics-heading">
+        <span class="analytics-icon">🌿</span>
+        <div>
+            <h2>Smart Farming Analytics</h2>
+            <p>Crop health and water usage overview</p>
+        </div>
+    </div>
+
+    <div class="analytics-grid">
+
+        <!-- CROP HEALTH GRAPH -->
+        <div class="analytics-card crop-health-card">
+
+            <div class="analytics-card-header">
+                <div>
+                    <span class="analytics-label">CROP MONITORING</span>
+                    <h3>🌱 Crop Health Status</h3>
+                    <p>Healthy vs disease-detected crops</p>
+                </div>
+                <span class="analytics-badge green-badge">Health</span>
+            </div>
+
+            <div class="chart-container doughnut-container">
+                <canvas id="cropHealthChart"></canvas>
+            </div>
+
+            <div class="health-legend">
+                <div class="legend-item">
+                    <span class="legend-dot healthy-dot"></span>
+                    <span>Healthy crops</span>
+                    <strong id="healthyCount">70%</strong>
+                </div>
+
+                <div class="legend-item">
+                    <span class="legend-dot disease-dot"></span>
+                    <span>Disease detected</span>
+                    <strong id="diseaseCount">30%</strong>
+                </div>
+            </div>
+
+            <div class="analytics-note">
+                <span>💡</span>
+                <span>Monitor crop conditions regularly for better results.</span>
+            </div>
+
+        </div>
+
+
+        <!-- IRRIGATION GRAPH -->
+        <div class="analytics-card irrigation-card">
+
+            <div class="analytics-card-header">
+                <div>
+                    <span class="analytics-label">WATER MANAGEMENT</span>
+                    <h3>💧 Irrigation Analytics</h3>
+                    <p>Weekly water consumption</p>
+                </div>
+                <span class="analytics-badge blue-badge">Weekly</span>
+            </div>
+
+            <div class="irrigation-summary">
+                <div>
+                    <span class="summary-label">Total water used</span>
+                    <h2><span id="weeklyWater">1,250</span> <small>L</small></h2>
+                </div>
+                <span class="water-summary-icon">💧</span>
+            </div>
+
+            <div class="chart-container irrigation-container">
+                <canvas id="irrigationChart"></canvas>
+            </div>
+
+            <div class="analytics-note water-note">
+                <span>🌦️</span>
+                <span>Plan irrigation according to soil moisture and weather.</span>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
 {% endblock %}

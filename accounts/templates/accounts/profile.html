@@ -20,9 +20,10 @@
 
         {% if farmer_profile.photo %}
             <img
-                src="{{ farmer_profile.photo.url }}"
-                alt="Profile Photo"
-            >
+    src="{{ farmer_profile.photo.url }}"
+    alt="Profile Photo"
+    style="width:100%; height:100%; object-fit:cover; display:block;"
+>
         {% else %}
             👨‍🌾
         {% endif %}
